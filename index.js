@@ -37,7 +37,7 @@
 
 //Test variable with absurd dummy data
 var mapData = [
-[ { "id" : "US-AL", "value": 4447100}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ", "value" : 0 } ],
+[ { "id" : "US-AL", "value": 0.5}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ", "value" : 0 } ],
 [ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AZ","value" : 1 } ]
 [ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AK","value" : 1 } ]
 
@@ -77,6 +77,13 @@ function drawBubbles() {
 
  if (value > 0) {
   //Animate this to make it all pretty
+  /*NOTE: The event data should be changed to 0, 0.5, and 1.
+  In theory, since you're looking for a value of > 0, you can make the
+  color/size/opacity dependent on if it's 0.5 or 1 (for legation vs ebassy).
+  Do you have to loop through every country every time, though? That kind of stinks,
+  but it's looking like yes.
+  */
+
           map.dataProvider.images.push({
             type: "circle",
             width: 15,
@@ -89,9 +96,9 @@ function drawBubbles() {
         });
 
     } else {
-      //Check if the image with this id already exists.
+      //Check if a circle with this id already exists.
       //If it does exist, remove it from the array.
-      //Otherwise, do nothing.
+      //Otherwise, do nothing
     }
 }
 }
@@ -114,26 +121,6 @@ function drawCircles() {
             value: value
         });
         }
-        // calculate size of a bubble
-        /*
-        var square = (value - min) / (max - min) * (maxSquare - minSquare) + minSquare;
-        if (square < minSquare) {
-            square = minSquare;
-        }
-        var size = Math.sqrt(square / (Math.PI * 2));
-        var id = dataItem.code;
-
-        dataProvider.images.push({
-            type: "circle",
-            width: size,
-            height: size,
-            color: dataItem.color,
-            longitude: latlong[id].longitude,
-            latitude: latlong[id].latitude,
-            title: dataItem.name,
-            value: value
-        });
-    */
     }
 }
 
@@ -189,20 +176,23 @@ function testFunc() {
   var dataYear = mapData[0];
   var dataItem = mapData[0][1];
   var value = mapData[0][0].value;
-  console.log(dataYear);
+  //console.log(dataYear);
   console.log(dataItem);
-  console.log(value);
+  console.log("Value = " + value);
 
 
  if (value > 0) {
   //Animate this to make it all pretty
+          //var id = dataItem.id
+          var alpha = 1*value;
+          var b = 237*value;
           map.dataProvider.images.push({
             type: "circle",
             width: 15,
             height: 15,
-            color: "rgba(64, 64, 237, 0.7)",
-            longitude: -97,
-            latitude: 38,
+            color: `rgba(64, 64, ${b}, 0.8)`,
+            longitude: -97, //Replace with latlong[id].longitude
+            latitude: 38, //Replace with latlong[id].latitude
             title: dataItem.id,
             value: value
         });
@@ -214,4 +204,4 @@ function testFunc() {
     }
 }
 
-//testFunc();
+testFunc();
