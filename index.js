@@ -37,8 +37,9 @@
 
 //Test variable with absurd dummy data
 var mapData = [
-[ { "id" : "US-AL", "value": 4447100}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ" } ],
+[ { "id" : "US-AL", "value": 4447100}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ", "value" : 0 } ],
 [ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AZ","value" : 1 } ]
+[ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AK","value" : 1 } ]
 
 ];
 /**
@@ -47,10 +48,9 @@ var mapData = [
 var map = AmCharts.makeChart( "mapdiv", {
   "type": "map",
   "theme": "light",
-  "colorSteps": 10,
   "dataProvider": {
     "map": "usaLow",
-    "areas": mapData[0],
+    //"areas": mapData[0],
     "images": []
   },
   /* I'm not using a value, trying to figure out how to avoid the heatmap part
@@ -63,6 +63,38 @@ var map = AmCharts.makeChart( "mapdiv", {
 } );
 
 console.log(map)
+
+//IMPORTANT: This doesn't work right now. I'm running into my same problems with
+//not understanding how to manipulate objects well enough. Good practice.
+function drawBubbles() {
+  for (var i = 0; i < mapData[currentFrame].length; i++) {
+  var dataYear = mapData[currentFrame][i];
+  var dataItem = mapData[currentFrame][i];
+  var value = mapData[currentFrame][i].value;
+  console.log(dataYear);
+  console.log(dataItem);
+  console.log(value);
+
+ if (value > 0) {
+  //Animate this to make it all pretty
+          map.dataProvider.images.push({
+            type: "circle",
+            width: 15,
+            height: 15,
+            color: "rgba(64, 64, 237, 0.7)",
+            longitude: -97,
+            latitude: 38,
+            title: dataItem.id,
+            value: value
+        });
+
+    } else {
+      //Check if the image with this id already exists.
+      //If it does exist, remove it from the array.
+      //Otherwise, do nothing.
+    }
+}
+}
 
 function drawCircles() {
   for (var i = 0; i < mapData[currentFrame].length; i++) {
@@ -139,8 +171,8 @@ function togglePlay() {
         currentFrame = 0;
       
       // set data to the chart for the current frame
-      map.dataProvider.areas = mapData[ currentFrame ];
-      //drawCircles();
+      //Probably replace this with just the bubbles over time
+     map.dataProvider.areas = mapData[ currentFrame ];
       map.validateData();
       
       // set frame indicator
@@ -166,8 +198,8 @@ function testFunc() {
   //Animate this to make it all pretty
           map.dataProvider.images.push({
             type: "circle",
-            width: 20,
-            height: 20,
+            width: 15,
+            height: 15,
             color: "rgba(64, 64, 237, 0.7)",
             longitude: -97,
             latitude: 38,
@@ -182,4 +214,4 @@ function testFunc() {
     }
 }
 
-testFunc();
+//testFunc();
