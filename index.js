@@ -38,7 +38,7 @@
 //Test variable with absurd dummy data
 var mapData = [
 [ { "id" : "US-AL", "value": 0.5}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ", "value" : 0 } ],
-[ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AZ","value" : 1 } ]
+[ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AZ","value" : 1 } ],
 [ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AK","value" : 1 } ]
 
 ];
@@ -50,7 +50,7 @@ var map = AmCharts.makeChart( "mapdiv", {
   "theme": "light",
   "dataProvider": {
     "map": "usaLow",
-    //"areas": mapData[0],
+    "areas": mapData[0],
     "images": []
   },
   /* I'm not using a value, trying to figure out how to avoid the heatmap part
@@ -149,7 +149,6 @@ function togglePlay() {
     //Currently the "toggle" part of this isn't really working, but why?
     // start playing
     interval = setInterval( function () {
-      
       // iterate the frame
       currentFrame++;
       
