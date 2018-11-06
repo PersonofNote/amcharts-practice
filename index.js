@@ -34,12 +34,29 @@
   [ { "id" : "US-AL","value" : 1542508 }, { "id" : "US-AK","value" : 255271 }, { "id" : "US-AZ","value" : 1185806 }, { "id" : "US-AR","value" : 511146 }, { "id" : "US-CA","value" : 1301214 }, { "id" : "US-CO","value" : 1774490 }, { "id" : "US-CT","value" : 811075 }, { "id" : "US-DE","value" : 966353 }, { "id" : "US-FL","value" : 161998 }, { "id" : "US-GA","value" : 3057753 }, { "id" : "US-HI","value" : 588308 }, { "id" : "US-ID","value" : 1318502 }, { "id" : "US-IL","value" : 5274802 }, { "id" : "US-IN","value" : 228721 }, { "id" : "US-IA","value" : 1099152 }, { "id" : "US-KS","value" : 212454 }, { "id" : "US-KY","value" : 2482371 }, { "id" : "US-LA","value" : 851995 }, { "id" : "US-ME","value" : 22103 }, { "id" : "US-MD","value" : 1247736 }, { "id" : "US-MA","value" : 80593135 }, { "id" : "US-MI","value" : 2068373 }, { "id" : "US-MN","value" : 89896 }, { "id" : "US-MS","value" : 4046575 }, { "id" : "US-MO","value" : 5971622 }, { "id" : "US-MT","value" : 2093428 }, { "id" : "US-NE","value" : 328961 }, { "id" : "US-NV","value" : 1301186 }, { "id" : "US-NH","value" : 187862 }, { "id" : "US-NJ","value" : 3695505 }, { "id" : "US-NM","value" : 218811 }, { "id" : "US-NY","value" : 8203649 }, { "id" : "US-NC","value" : 2450521 }, { "id" : "US-ND","value" : 29445 }, { "id" : "US-OH","value" : 3893054 }, { "id" : "US-OK","value" : 890922 }, { "id" : "US-OR","value" : 17574803 }, { "id" : "US-PA","value" : 5598764 }, { "id" : "US-RI","value" : 257009 }, { "id" : "US-SC","value" : 987240 }, { "id" : "US-SD","value" : 4230 }, { "id" : "US-TN","value" : 2299228 }, { "id" : "US-TX","value" : 222321 }, { "id" : "US-UT","value" : 1559387 }, { "id" : "US-VT","value" : 108787 }, { "id" : "US-VA","value" : 29142460 }, { "id" : "US-WA","value" : 123279 }, { "id" : "US-WV","value" : 7932 }, { "id" : "US-WI","value" : 9830616 }, { "id" : "US-WY","value" : 372970 }],
   [ { "id" : "US-AL","value" : 1348970 }, { "id" : "US-AK","value" : 353786 }, { "id" : "US-AZ","value" : 665177 }, { "id" : "US-AR","value" : 284665 }, { "id" : "US-CA","value" : 1853218 }, { "id" : "US-CO","value" : 1800472 }, { "id" : "US-CT","value" : 478926 }, { "id" : "US-DE","value" : 777105 }, { "id" : "US-FL","value" : 228653 }, { "id" : "US-GA","value" : 3319839 }, { "id" : "US-HI","value" : 633688 }, { "id" : "US-ID","value" : 1809446 }, { "id" : "US-IL","value" : 5478417 }, { "id" : "US-IN","value" : 116253 }, { "id" : "US-IA","value" : 836498 }, { "id" : "US-KS","value" : 193572 }, { "id" : "US-KY","value" : 2535282 }, { "id" : "US-LA","value" : 575095 }, { "id" : "US-ME","value" : 14883 }, { "id" : "US-MD","value" : 736685 }, { "id" : "US-MA","value" : 49145823 }, { "id" : "US-MI","value" : 2035805 }, { "id" : "US-MN","value" : 54884 }, { "id" : "US-MS","value" : 5253187 }, { "id" : "US-MO","value" : 3412810 }, { "id" : "US-MT","value" : 1911348 }, { "id" : "US-NE","value" : 356444 }, { "id" : "US-NV","value" : 1136638 }, { "id" : "US-NH","value" : 281682 }, { "id" : "US-NJ","value" : 3227044 }, { "id" : "US-NM","value" : 243211 }, { "id" : "US-NY","value" : 7178669 }, { "id" : "US-NC","value" : 1822170 }, { "id" : "US-ND","value" : 37671 }, { "id" : "US-OH","value" : 5411877 }, { "id" : "US-OK","value" : 538419 }, { "id" : "US-OR","value" : 12526601 }, { "id" : "US-PA","value" : 8233709 }, { "id" : "US-RI","value" : 246803 }, { "id" : "US-SC","value" : 632014 }, { "id" : "US-SD","value" : 3561 }, { "id" : "US-TN","value" : 2441864 }, { "id" : "US-TX","value" : 209085 }, { "id" : "US-UT","value" : 1796610 }, { "id" : "US-VT","value" : 136229 }, { "id" : "US-VA","value" : 18110580 }, { "id" : "US-WA","value" : 167036 }, { "id" : "US-WV","value" : 7979 }, { "id" : "US-WI","value" : 11846714 }, { "id" : "US-WY","value" : 446735 }]
 //];
+var latlong = {};
+latlong["US-AL"] = {
+    "latitude": 32.3,
+    "longitude": 86.3
+  };
+latlong["US-NV"] = {
+    "latitude": 33.8,
+    "longitude": 39.2
+  };
+latlong["US-AZ"] = {
+    "latitude": 33.4,
+    "longitude": 112
+  };
+latlong["US-AK"] = {
+    "latitude": 30.4,
+    "longitude": 86
+  };
 
 //Test variable with absurd dummy data
 var mapData = [
-[ { "id" : "US-AL", "value": 0.5}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ", "value" : 0 } ],
+[ { "id" : "US-AL", "value": 0.5,}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ", "value" : 0 } ],
 [ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AZ","value" : 1 } ],
-[ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AK","value" : 1 } ]
+[ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 1 }, { "id" : "US-AK","value" : 1 } ]
 
 ];
 /**
@@ -50,7 +67,7 @@ var map = AmCharts.makeChart( "mapdiv", {
   "theme": "light",
   "dataProvider": {
     "map": "usaLow",
-    "areas": mapData[0],
+    //"areas": mapData[0],
     "images": []
   },
   /* I'm not using a value, trying to figure out how to avoid the heatmap part
@@ -82,15 +99,16 @@ function drawBubbles() {
   color/size/opacity dependent on if it's 0.5 or 1 (for legation vs ebassy).
   Do you have to loop through every country every time, though? That kind of stinks,
   but it's looking like yes.
-  */
-
+  */      var id = dataItem.id;
+          var alpha = 1*value;
+          var b = 237*value;
           map.dataProvider.images.push({
             type: "circle",
             width: 15,
             height: 15,
             color: "rgba(64, 64, 237, 0.7)",
-            longitude: -97,
-            latitude: 38,
+            longitude: latlong[id].longitude, //Make sure to update with the correct lat and long
+            latitude: latlong[id].latitude,
             title: dataItem.id,
             value: value
         });
@@ -103,6 +121,7 @@ function drawBubbles() {
 }
 }
 
+/*
 function drawCircles() {
   for (var i = 0; i < mapData[currentFrame].length; i++) {
         var dataItem = mapData[currentFrame][i];
@@ -123,6 +142,7 @@ function drawCircles() {
         }
     }
 }
+*/
 
 /**
  * The code responsible for animating the motion map data
@@ -158,7 +178,8 @@ function togglePlay() {
       
       // set data to the chart for the current frame
       //Probably replace this with just the bubbles over time
-     map.dataProvider.areas = mapData[ currentFrame ];
+      drawBubbles();
+     //map.dataProvider.areas = mapData[ currentFrame ];
       map.validateData();
       
       // set frame indicator
@@ -203,4 +224,4 @@ function testFunc() {
     }
 }
 
-testFunc();
+//testFunc();
