@@ -1,7 +1,7 @@
 /**
  * Set data for all frames
  */
-var mapData = [
+//var mapData = [
   [ { "id" : "US-AL","value" : 4447100 }, { "id" : "US-AK","value" : 626932 }, { "id" : "US-AZ","value" : 5130632 }, { "id" : "US-AR","value" : 2673400 }, { "id" : "US-CA","value" : 33871648 }, { "id" : "US-CO","value" : 4301261 }, { "id" : "US-CT","value" : 3405565 }, { "id" : "US-DE","value" : 783600 }, { "id" : "US-FL","value" : 15982378 }, { "id" : "US-GA","value" : 8186453 }, { "id" : "US-HI","value" : 1211537 }, { "id" : "US-ID","value" : 1293953 }, { "id" : "US-IL","value" : 12419293 }, { "id" : "US-IN","value" : 6080485 }, { "id" : "US-IA","value" : 2926324 }, { "id" : "US-KS","value" : 2688418 }, { "id" : "US-KY","value" : 4041769 }, { "id" : "US-LA","value" : 4468976 }, { "id" : "US-ME","value" : 1274923 }, { "id" : "US-MD","value" : 5296486 }, { "id" : "US-MA","value" : 6349097 }, { "id" : "US-MI","value" : 9938444 }, { "id" : "US-MN","value" : 4919479 }, { "id" : "US-MS","value" : 2844658 }, { "id" : "US-MO","value" : 5595211 }, { "id" : "US-MT","value" : 902195 }, { "id" : "US-NE","value" : 1711263 }, { "id" : "US-NV","value" : 1998257 }, { "id" : "US-NH","value" : 1235786 }, { "id" : "US-NJ","value" : 8414350 }, { "id" : "US-NM","value" : 1819046 }, { "id" : "US-NY","value" : 18976457 }, { "id" : "US-NC","value" : 8049313 }, { "id" : "US-ND","value" : 642200 }, { "id" : "US-OH","value" : 11353140 }, { "id" : "US-OK","value" : 3450654 }, { "id" : "US-OR","value" : 3421399 }, { "id" : "US-PA","value" : 12281054 }, { "id" : "US-RI","value" : 1048319 }, { "id" : "US-SC","value" : 4012012 }, { "id" : "US-SD","value" : 754844 }, { "id" : "US-TN","value" : 5689283 }, { "id" : "US-TX","value" : 20851820 }, { "id" : "US-UT","value" : 2233169 }, { "id" : "US-VT","value" : 608827 }, { "id" : "US-VA","value" : 7078515 }, { "id" : "US-WA","value" : 5894121 }, { "id" : "US-WV","value" : 1808344 }, { "id" : "US-WI","value" : 5363675 }, { "id" : "US-WY","value" : 493782 }],
   [ { "id" : "US-AL","value" : 3857213 }, { "id" : "US-AK","value" : 512353 }, { "id" : "US-AZ","value" : 6474943 }, { "id" : "US-AR","value" : 1613487 }, { "id" : "US-CA","value" : 46454237 }, { "id" : "US-CO","value" : 5276342 }, { "id" : "US-CT","value" : 2937489 }, { "id" : "US-DE","value" : 1140367 }, { "id" : "US-FL","value" : 8150390 }, { "id" : "US-GA","value" : 9319792 }, { "id" : "US-HI","value" : 1641383 }, { "id" : "US-ID","value" : 1807634 }, { "id" : "US-IL","value" : 14309001 }, { "id" : "US-IN","value" : 5643161 }, { "id" : "US-IA","value" : 2290590 }, { "id" : "US-KS","value" : 1388941 }, { "id" : "US-KY","value" : 5877546 }, { "id" : "US-LA","value" : 2710137 }, { "id" : "US-ME","value" : 887832 }, { "id" : "US-MD","value" : 6735989 }, { "id" : "US-MA","value" : 4092038 }, { "id" : "US-MI","value" : 10540183 }, { "id" : "US-MN","value" : 4549488 }, { "id" : "US-MS","value" : 1728433 }, { "id" : "US-MO","value" : 4110640 }, { "id" : "US-MT","value" : 485443 }, { "id" : "US-NE","value" : 1204361 }, { "id" : "US-NV","value" : 1367224 }, { "id" : "US-NH","value" : 934281 }, { "id" : "US-NJ","value" : 12170334 }, { "id" : "US-NM","value" : 978281 }, { "id" : "US-NY","value" : 23200864 }, { "id" : "US-NC","value" : 9475991 }, { "id" : "US-ND","value" : 751860 }, { "id" : "US-OH","value" : 14009678 }, { "id" : "US-OK","value" : 4529930 }, { "id" : "US-OR","value" : 2579409 }, { "id" : "US-PA","value" : 16925566 }, { "id" : "US-RI","value" : 1094406 }, { "id" : "US-SC","value" : 5419041 }, { "id" : "US-SD","value" : 483037 }, { "id" : "US-TN","value" : 7238756 }, { "id" : "US-TX","value" : 16853653 }, { "id" : "US-UT","value" : 1351618 }, { "id" : "US-VT","value" : 645134 }, { "id" : "US-VA","value" : 4828577 }, { "id" : "US-WA","value" : 4204059 }, { "id" : "US-WV","value" : 1032342 }, { "id" : "US-WI","value" : 6421507 }, { "id" : "US-WY","value" : 688018 }],
   [ { "id" : "US-AL","value" : 3495886 }, { "id" : "US-AK","value" : 273464 }, { "id" : "US-AZ","value" : 5783415 }, { "id" : "US-AR","value" : 1125443 }, { "id" : "US-CA","value" : 32947849 }, { "id" : "US-CO","value" : 6435014 }, { "id" : "US-CT","value" : 2207354 }, { "id" : "US-DE","value" : 1207507 }, { "id" : "US-FL","value" : 7877993 }, { "id" : "US-GA","value" : 8151783 }, { "id" : "US-HI","value" : 1355466 }, { "id" : "US-ID","value" : 1589266 }, { "id" : "US-IL","value" : 21413920 }, { "id" : "US-IN","value" : 4954029 }, { "id" : "US-IA","value" : 1708691 }, { "id" : "US-KS","value" : 1664274 }, { "id" : "US-KY","value" : 3521809 }, { "id" : "US-LA","value" : 2563483 }, { "id" : "US-ME","value" : 613457 }, { "id" : "US-MD","value" : 9591199 }, { "id" : "US-MA","value" : 4087820 }, { "id" : "US-MI","value" : 11028092 }, { "id" : "US-MN","value" : 4840700 }, { "id" : "US-MS","value" : 2569575 }, { "id" : "US-MO","value" : 3817500 }, { "id" : "US-MT","value" : 426905 }, { "id" : "US-NE","value" : 1657743 }, { "id" : "US-NV","value" : 1354092 }, { "id" : "US-NH","value" : 1324879 }, { "id" : "US-NJ","value" : 15361023 }, { "id" : "US-NM","value" : 508696 }, { "id" : "US-NY","value" : 25790378 }, { "id" : "US-NC","value" : 6668153 }, { "id" : "US-ND","value" : 688847 }, { "id" : "US-OH","value" : 18829380 }, { "id" : "US-OK","value" : 6247139 }, { "id" : "US-OR","value" : 3709616 }, { "id" : "US-PA","value" : 11794204 }, { "id" : "US-RI","value" : 1618596 }, { "id" : "US-SC","value" : 6336070 }, { "id" : "US-SD","value" : 389039 }, { "id" : "US-TN","value" : 6189746 }, { "id" : "US-TX","value" : 8975875 }, { "id" : "US-UT","value" : 939607 }, { "id" : "US-VT","value" : 801370 }, { "id" : "US-VA","value" : 4438451 }, { "id" : "US-WA","value" : 2900919 }, { "id" : "US-WV","value" : 654993 }, { "id" : "US-WI","value" : 5613588 }, { "id" : "US-WY","value" : 640357 }],
@@ -33,27 +33,78 @@ var mapData = [
   [ { "id" : "US-AL","value" : 2012726 }, { "id" : "US-AK","value" : 184703 }, { "id" : "US-AZ","value" : 1279393 }, { "id" : "US-AR","value" : 610887 }, { "id" : "US-CA","value" : 2163366 }, { "id" : "US-CO","value" : 1593151 }, { "id" : "US-CT","value" : 1312608 }, { "id" : "US-DE","value" : 648578 }, { "id" : "US-FL","value" : 131597 }, { "id" : "US-GA","value" : 4060947 }, { "id" : "US-HI","value" : 1025613 }, { "id" : "US-ID","value" : 1808582 }, { "id" : "US-IL","value" : 7168720 }, { "id" : "US-IN","value" : 245925 }, { "id" : "US-IA","value" : 949047 }, { "id" : "US-KS","value" : 177740 }, { "id" : "US-KY","value" : 2788146 }, { "id" : "US-LA","value" : 735923 }, { "id" : "US-ME","value" : 18327 }, { "id" : "US-MD","value" : 1221343 }, { "id" : "US-MA","value" : 64042127 }, { "id" : "US-MI","value" : 1612602 }, { "id" : "US-MN","value" : 63910 }, { "id" : "US-MS","value" : 2780454 }, { "id" : "US-MO","value" : 7856467 }, { "id" : "US-MT","value" : 1878376 }, { "id" : "US-NE","value" : 429085 }, { "id" : "US-NV","value" : 985311 }, { "id" : "US-NH","value" : 126531 }, { "id" : "US-NJ","value" : 4711069 }, { "id" : "US-NM","value" : 234641 }, { "id" : "US-NY","value" : 8078840 }, { "id" : "US-NC","value" : 2364553 }, { "id" : "US-ND","value" : 30417 }, { "id" : "US-OH","value" : 3042360 }, { "id" : "US-OK","value" : 1043559 }, { "id" : "US-OR","value" : 12096978 }, { "id" : "US-PA","value" : 5964124 }, { "id" : "US-RI","value" : 219379 }, { "id" : "US-SC","value" : 823187 }, { "id" : "US-SD","value" : 6049 }, { "id" : "US-TN","value" : 1605827 }, { "id" : "US-TX","value" : 282689 }, { "id" : "US-UT","value" : 1264414 }, { "id" : "US-VT","value" : 197185 }, { "id" : "US-VA","value" : 36674109 }, { "id" : "US-WA","value" : 169241 }, { "id" : "US-WV","value" : 7433 }, { "id" : "US-WI","value" : 10107290 }, { "id" : "US-WY","value" : 339690 }],
   [ { "id" : "US-AL","value" : 1542508 }, { "id" : "US-AK","value" : 255271 }, { "id" : "US-AZ","value" : 1185806 }, { "id" : "US-AR","value" : 511146 }, { "id" : "US-CA","value" : 1301214 }, { "id" : "US-CO","value" : 1774490 }, { "id" : "US-CT","value" : 811075 }, { "id" : "US-DE","value" : 966353 }, { "id" : "US-FL","value" : 161998 }, { "id" : "US-GA","value" : 3057753 }, { "id" : "US-HI","value" : 588308 }, { "id" : "US-ID","value" : 1318502 }, { "id" : "US-IL","value" : 5274802 }, { "id" : "US-IN","value" : 228721 }, { "id" : "US-IA","value" : 1099152 }, { "id" : "US-KS","value" : 212454 }, { "id" : "US-KY","value" : 2482371 }, { "id" : "US-LA","value" : 851995 }, { "id" : "US-ME","value" : 22103 }, { "id" : "US-MD","value" : 1247736 }, { "id" : "US-MA","value" : 80593135 }, { "id" : "US-MI","value" : 2068373 }, { "id" : "US-MN","value" : 89896 }, { "id" : "US-MS","value" : 4046575 }, { "id" : "US-MO","value" : 5971622 }, { "id" : "US-MT","value" : 2093428 }, { "id" : "US-NE","value" : 328961 }, { "id" : "US-NV","value" : 1301186 }, { "id" : "US-NH","value" : 187862 }, { "id" : "US-NJ","value" : 3695505 }, { "id" : "US-NM","value" : 218811 }, { "id" : "US-NY","value" : 8203649 }, { "id" : "US-NC","value" : 2450521 }, { "id" : "US-ND","value" : 29445 }, { "id" : "US-OH","value" : 3893054 }, { "id" : "US-OK","value" : 890922 }, { "id" : "US-OR","value" : 17574803 }, { "id" : "US-PA","value" : 5598764 }, { "id" : "US-RI","value" : 257009 }, { "id" : "US-SC","value" : 987240 }, { "id" : "US-SD","value" : 4230 }, { "id" : "US-TN","value" : 2299228 }, { "id" : "US-TX","value" : 222321 }, { "id" : "US-UT","value" : 1559387 }, { "id" : "US-VT","value" : 108787 }, { "id" : "US-VA","value" : 29142460 }, { "id" : "US-WA","value" : 123279 }, { "id" : "US-WV","value" : 7932 }, { "id" : "US-WI","value" : 9830616 }, { "id" : "US-WY","value" : 372970 }],
   [ { "id" : "US-AL","value" : 1348970 }, { "id" : "US-AK","value" : 353786 }, { "id" : "US-AZ","value" : 665177 }, { "id" : "US-AR","value" : 284665 }, { "id" : "US-CA","value" : 1853218 }, { "id" : "US-CO","value" : 1800472 }, { "id" : "US-CT","value" : 478926 }, { "id" : "US-DE","value" : 777105 }, { "id" : "US-FL","value" : 228653 }, { "id" : "US-GA","value" : 3319839 }, { "id" : "US-HI","value" : 633688 }, { "id" : "US-ID","value" : 1809446 }, { "id" : "US-IL","value" : 5478417 }, { "id" : "US-IN","value" : 116253 }, { "id" : "US-IA","value" : 836498 }, { "id" : "US-KS","value" : 193572 }, { "id" : "US-KY","value" : 2535282 }, { "id" : "US-LA","value" : 575095 }, { "id" : "US-ME","value" : 14883 }, { "id" : "US-MD","value" : 736685 }, { "id" : "US-MA","value" : 49145823 }, { "id" : "US-MI","value" : 2035805 }, { "id" : "US-MN","value" : 54884 }, { "id" : "US-MS","value" : 5253187 }, { "id" : "US-MO","value" : 3412810 }, { "id" : "US-MT","value" : 1911348 }, { "id" : "US-NE","value" : 356444 }, { "id" : "US-NV","value" : 1136638 }, { "id" : "US-NH","value" : 281682 }, { "id" : "US-NJ","value" : 3227044 }, { "id" : "US-NM","value" : 243211 }, { "id" : "US-NY","value" : 7178669 }, { "id" : "US-NC","value" : 1822170 }, { "id" : "US-ND","value" : 37671 }, { "id" : "US-OH","value" : 5411877 }, { "id" : "US-OK","value" : 538419 }, { "id" : "US-OR","value" : 12526601 }, { "id" : "US-PA","value" : 8233709 }, { "id" : "US-RI","value" : 246803 }, { "id" : "US-SC","value" : 632014 }, { "id" : "US-SD","value" : 3561 }, { "id" : "US-TN","value" : 2441864 }, { "id" : "US-TX","value" : 209085 }, { "id" : "US-UT","value" : 1796610 }, { "id" : "US-VT","value" : 136229 }, { "id" : "US-VA","value" : 18110580 }, { "id" : "US-WA","value" : 167036 }, { "id" : "US-WV","value" : 7979 }, { "id" : "US-WI","value" : 11846714 }, { "id" : "US-WY","value" : 446735 }]
-];
+//];
 
+//Test variable with absurd dummy data
+var mapData = [
+[ { "id" : "US-AL", "value": 4447100}, { "id" : "US-NV", "value" : 0 }, { "id" : "US-AZ" } ],
+[ { "id" : "US-AL","value" : false }, { "id" : "US-NV","value" : 0 }, { "id" : "US-AZ","value" : 1 } ]
+
+];
 /**
  * Create the map
  */
 var map = AmCharts.makeChart( "mapdiv", {
   "type": "map",
-  //"theme": "light",
-  //"colorSteps": 10,
+  "theme": "light",
+  "colorSteps": 10,
   "dataProvider": {
     "map": "usaLow",
-    "areas": mapData[0]
+    "areas": mapData[0],
+    "images": []
   },
+  /* I'm not using a value, trying to figure out how to avoid the heatmap part
   "valueLegend": {
-    "right": 10,
+    "right": 1,
     "minValue": "little",
     "maxValue": "a lot!"
   }
+  */
 } );
 
 console.log(map)
+
+function drawCircles() {
+  for (var i = 0; i < mapData[currentFrame].length; i++) {
+        var dataItem = mapData[currentFrame][i];
+        var value = mapData[currentFrame].value;
+        console.log(dataItem);
+
+        if (value > 0) {
+          dataProvider.images.push({
+            type: "circle",
+            width: 20,
+            height: 20,
+            color: "red",
+            longitude: -97,
+            latitude: 38,
+            title: dataItem.id,
+            value: value
+        });
+        }
+        // calculate size of a bubble
+        /*
+        var square = (value - min) / (max - min) * (maxSquare - minSquare) + minSquare;
+        if (square < minSquare) {
+            square = minSquare;
+        }
+        var size = Math.sqrt(square / (Math.PI * 2));
+        var id = dataItem.code;
+
+        dataProvider.images.push({
+            type: "circle",
+            width: size,
+            height: size,
+            color: dataItem.color,
+            longitude: latlong[id].longitude,
+            latitude: latlong[id].latitude,
+            title: dataItem.name,
+            value: value
+        });
+    */
+    }
+}
+
 /**
  * The code responsible for animating the motion map data
  */
@@ -61,19 +112,22 @@ console.log(map)
 // initilize variables
 var currentFrame = 0;
 var interval;
-var speed = 200; // time between frames in milliseconds
+var speed = 400;
+
+console.log(interval); // time between frames in milliseconds
 
 // function to start stop
 function togglePlay() {
   
   // check if animation is playing (intverla is set)
   if ( interval ) {
-    
+    console.log("Current Frame is " + currentFrame);
     // stop playing (clear interval)
     clearInterval( interval );
   }
   else {
     
+    //Currently the "toggle" part of this isn't really working, but why?
     // start playing
     interval = setInterval( function () {
       
@@ -86,6 +140,7 @@ function togglePlay() {
       
       // set data to the chart for the current frame
       map.dataProvider.areas = mapData[ currentFrame ];
+      //drawCircles();
       map.validateData();
       
       // set frame indicator
@@ -95,3 +150,36 @@ function togglePlay() {
     
   }
 }
+
+
+//Test function to push static data
+function testFunc() {
+  var dataYear = mapData[0];
+  var dataItem = mapData[0][1];
+  var value = mapData[0][0].value;
+  console.log(dataYear);
+  console.log(dataItem);
+  console.log(value);
+
+
+ if (value > 0) {
+  //Animate this to make it all pretty
+          map.dataProvider.images.push({
+            type: "circle",
+            width: 20,
+            height: 20,
+            color: "rgba(64, 64, 237, 0.7)",
+            longitude: -97,
+            latitude: 38,
+            title: dataItem.id,
+            value: value
+        });
+
+    } else {
+      //Check if the image with this id already exists.
+      //If it does exist, remove it from the array.
+      //Otherwise, do nothing.
+    }
+}
+
+testFunc();
