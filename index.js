@@ -44,9 +44,9 @@ latlong["US"] = {"latitude":38, "longitude":-97};
 
 //Test variable with absurd dummy data
 var mapData = [
-[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":45 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":97} ],
-[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":45 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":97} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":45 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":97} ],
+[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
 
 ];
 
@@ -67,7 +67,7 @@ var dummyImg = {
  */
 var map = AmCharts.makeChart( "mapdiv", {
   "type": "map",
-  "theme": "light",
+  "theme": "dark",
 
   /* Still working with dummy data for now, hold tight.
   "dataLoader": {
@@ -125,63 +125,43 @@ function remove(arr) {
 
 function drawBubbles() {
   for (var i = 0; i < mapData[currentFrame].length; i++) {
-  var dataItem = mapData[currentFrame][i];
-  var value = mapData[currentFrame][i].value;
-  var code = dataItem.code;
-  var lat = dataItem.latitude;
-  var long = dataItem.longitude;
-  var title = dataItem.name;
-  var img = map.dataProvider.images
-  var match = img.filter(image => (image.title === title));
-  console.log(match.length + "matches found for " + title);
- /* if (filteredImg.length>0){
-    img = img.filter(image => (image.title != title));
-  } else {
-    img = img;
-  }
-  */
-  //console.log(dataItem);
-  console.log("Value of " + title + " = " + value);
-
-  /*
-  How to structure this if-statement? If exists and the value is the same as the previous value
-  (was and is 0.5), then do nothing. If !exists, push. If exists and old != new, then if value is 0, remove,
-  if value is 1, push new bubble. How to write?
-  */
-
-
-  //Animate this to make it all pretty
-  /*NOTE: The event data should be changed to 0, 0.5, and 1.
-  In theory, since you're looking for a value of > 0, you can make the
-  color/size/opacity dependent on if it's 0.5 or 1 (for legation vs ebassy).
-  Do you have to loop through every country every time, though? That kind of stinks,
-  but it's looking like yes.
-  */      var type;
-          var r = 65*value;
-          var g = 65*value;
-          var b = 237*value;
-          var alpha = 1*value;
-    //Set image to visible or invisible
+    var dataItem = mapData[currentFrame][i];
+    var value = mapData[currentFrame][i].value;
+    var code = dataItem.code;
+    var lat = dataItem.latitude;
+    var long = dataItem.longitude;
+    var title = dataItem.name;
+    var img = map.dataProvider.images
+    var match = img.filter(image => (image.title === title));
+    console.log(match.length + "matches found for " + title);
+    console.log("Value of " + title + " = " + value);
+    var type;
+    var r = 65*value;
+    var g = 65*value;
+    var b = 237*value;
+    var alpha = 1*value;
     if ( match.length < 1) {
-      type = "circle";
-      
       img.push({
-            //Probably have some kind of unique identifier so that you can find it to splice it out
-            type: type,
+            type: "circle",
             width: 10,
             height: 10,
-            color: `rgba(${r}, ${g}, ${b}, ${alpha})`,
+            color: `rgba(51, 102, 255, ${alpha})`,
             longitude: lat, //Make sure to update with the correct lat and long
             latitude: long,
             title: title,
             value: value
         });
     } else {
+
+          if(value > 0) {
+              img[i].type="circle";
+              img[i].color = `rgba(51, 102, 255, ${alpha})`
+          }else if (value == 0) {
           //var exists = img.filter(image => (image.title === title))
             //if (exists.length>0){
-            img.indexOf(title).type="";
-            console.log("Image at index" + img.indexOf(dataItem))
-            img.indexOf(title).color = " `rgba(${r}, ${g}, ${b}, ${alpha})`";
+            img[i].type="";
+            console.log("Image at index" + img[i].type);
+            img[i].color = `rgba(51, 102, 255, ${alpha})`;
             }
           }
 
@@ -204,6 +184,7 @@ function drawBubbles() {
       return;
     }
     */
+  }
 }
 
 
