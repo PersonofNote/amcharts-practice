@@ -50,6 +50,17 @@ var mapData = [
 
 ];
 
+var dummyImg = {
+  type: "circle",
+            width: 15,
+            height: 15,
+            color: `rgba(64, 64, 64, 0.8)`,
+            longitude:44, //Replace with latlong[id].longitude
+            latitude:33, //Replace with latlong[id].latitude
+            title: "FR",
+            value: 1
+}
+
 /**
  * Create the map
  */
@@ -65,7 +76,7 @@ var map = AmCharts.makeChart( "mapdiv", {
   "dataProvider": {
     "map": "worldLow",
     //"areas": mapData[0],
-    "images": []
+    "images": [dummyImg]
   },
   /* I'm not using a value, trying to figure out how to avoid the heatmap part
   "valueLegend": {
@@ -107,7 +118,7 @@ function drawBubbles() {
           var b = 237*value;
           //NOT WORKING. Getting closer, but there's something screwy with the way
           //I'm implementing this.
-          if (img.includes(code)) {
+          if (img.includes(this.code)) {
             return;
           } else {
           img.push({
@@ -174,7 +185,6 @@ function togglePlay() {
     clearInterval( interval );
   }
   else {
-    
     //Currently the "toggle" part of this isn't really working, but why?
     // start playing
     interval = setInterval( function () {
@@ -188,7 +198,7 @@ function togglePlay() {
       // set data to the chart for the current frame
       //Probably replace this with just the bubbles over time
      drawBubbles();
-     map.dataProvider.areas = mapData[ currentFrame ];
+     //map.dataProvider.areas = mapData[ currentFrame ];
       map.validateData();
       
       // set frame indicator
@@ -204,17 +214,18 @@ function togglePlay() {
 function testFunc() {
   var dataYear = mapData[0];
   var dataItem = mapData[0][1];
-  var value = mapData[0][0].value;
+  var value = mapData[0][1].value;
   //console.log(dataYear);
   console.log("Code = " + dataItem.code);
   console.log("Value = " + value);
-   var code = dataItem.code
+  var code = dataItem.code
   console.log("Long = " + dataItem.longitude);
+  console.log("img = " + map.dataProvider.images);
 
 
  if (value > 0) {
   //Animate this to make it all pretty
-         
+         if (!img.include("FR"))
           var alpha = 1*value;
           var b = 237*value;
           map.dataProvider.images.push({
@@ -222,8 +233,8 @@ function testFunc() {
             width: 15,
             height: 15,
             color: `rgba(64, 64, ${b}, 0.8)`,
-            longitude: id.longitude, //Replace with latlong[id].longitude
-            latitude: id.latitude, //Replace with latlong[id].latitude
+            longitude: code.longitude, //Replace with latlong[id].longitude
+            latitude: code.latitude, //Replace with latlong[id].latitude
             title: dataItem.code,
             value: value
         });
@@ -233,6 +244,7 @@ function testFunc() {
       //If it does exist, remove it from the array.
       //Otherwise, do nothing.
     }
+  console.log(map.dataProvider.images);
 }
 
 testFunc();
