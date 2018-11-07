@@ -1,4 +1,26 @@
 /**
+  *TODO:
+  *Implement draggable slider that uses the currentFrame data to increment.
+    *Should also be able to drag the slider to a value, and affect the currentFrame value.
+  *Import and parse JSON data
+  *Format the data so that it works for your needs.
+    *This means:
+      *Sorting the data looking for the various events. Subtracting each instance from the previous instance, and then filling
+      in all the in-between indices with the previous event.
+      *Also filling in all indices around the first and last event with zeros.
+      *This might take a little bit, though, right? That kinda sucks, but I think it's necessary for extendability.
+      *Also add a column for country?
+  *Consider setting a "zoom" value so that it doesn't zoom out every time you press play. Would be cool for observing contentious areas through a diplomatic lens.
+
+  Timeline notes and thoughts:
+    -Create container.
+    -Create divs for each year between start and mapData.length (or whatever the number of years will be) (This will allow for more years to be added to the spreadsheet.)
+    -Append each of them to the dom, and set the innerHTML to index + 1776 (later change to tick marks in the middle and a number).
+    -When user clicks on the line, the currentFrame value will update to the click div's value.
+
+*/
+
+/**
  * Set data for all frames
  */
 /*var mapData = [
@@ -46,6 +68,8 @@ latlong["US"] = {"latitude":38, "longitude":-97};
 var mapData = [
 [ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
 [ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
 [ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
 
 ];
@@ -67,7 +91,7 @@ var dummyImg = {
  */
 var map = AmCharts.makeChart( "mapdiv", {
   "type": "map",
-  "theme": "dark",
+  "theme": "black",
 
   /* Still working with dummy data for now, hold tight.
   "dataLoader": {
@@ -166,15 +190,9 @@ function drawBubbles() {
  * The code responsible for animating the motion map data
  */
 
-/*
-  function initElement() {
-        var p = document.getElementById("play-button");
-        p.onclick = togglePlay;
-        console.log(playing);
-      };
-*/
 // initilize variables
 var currentFrame = 0;
+var year = 1776;
 var interval;
 var speed = 500;
 var playing=false;
@@ -203,7 +221,7 @@ function togglePlay() {
      drawBubbles();
      map.validateData();
       // set frame indicator
-      document.getElementById( 'frame' ).innerHTML = currentFrame;
+      document.getElementById( 'frame' ).innerHTML = currentFrame + year;
       
     }, speed);
     playing=true;
@@ -211,7 +229,6 @@ function togglePlay() {
 console.log(playing);
 }
 
-//initElement();
 /*
 //Test function to push static data
 function testFunc() {
