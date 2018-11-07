@@ -1,0 +1,15 @@
+.play-container {
+	display: inline-block;
+	border: 1px solid black;
+}
+
+.tick {
+	display:inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+	border: 1px solid black;
+}
+
+.tick:hover {
+	background: black;
+}

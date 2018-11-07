@@ -1,7 +1,7 @@
 /**
   *TODO:
-  *Implement draggable slider that uses the currentFrame data to increment.
-    *Should also be able to drag the slider to a value, and affect the currentFrame value.
+  *Implement draggable slider that uses the frame data to increment.
+    *Should also be able to drag the slider to a value, and affect the frame value.
   *Import and parse JSON data
   *Format the data so that it works for your needs.
     *This means:
@@ -16,7 +16,7 @@
     -Create container.
     -Create divs for each year between start and mapData.length (or whatever the number of years will be) (This will allow for more years to be added to the spreadsheet.)
     -Append each of them to the dom, and set the innerHTML to index + 1776 (later change to tick marks in the middle and a number).
-    -When user clicks on the line, the currentFrame value will update to the click div's value.
+    -When user clicks on the line, the frame value will update to the click div's value.
 
 */
 
@@ -141,9 +141,9 @@ function remove(arr) {
 }
 
 function drawBubbles() {
-  for (var i = 0; i < mapData[currentFrame].length; i++) {
-    var dataItem = mapData[currentFrame][i];
-    var value = mapData[currentFrame][i].value;
+  for (var i = 0; i < mapData[frame].length; i++) {
+    var dataItem = mapData[frame][i];
+    var value = mapData[frame][i].value;
     var code = dataItem.code;
     var lat = dataItem.latitude;
     var long = dataItem.longitude;
@@ -187,23 +187,49 @@ function drawBubbles() {
 }
 
 /**
- * The code responsible for animating the motion map data
+ * Animation code
  */
 
-// initilize variables
-var currentFrame = 0;
-var year = 1776;
-var interval;
-var speed = 500;
-var playing=false;
+ function makeTimeline() {
+  var timeline = document.getElementById('timeline');
+  for (var i=0;i<=mapData.length;i++){
+    tick = document.createElement("div");
+    tick.className = "tick"; 
+    tick.innerHTML=i+startYear;
+    tick.onclick = setYear;
+    console.log(tick);
+    timeline.appendChild(tick);
+  }
+ }
 
-//console.log(interval); // time between frames in milliseconds
+ function setYear() {
+  frame = 2;
+  togglePlay();
+  updateFramedisplay();
+  console.log("Clicked");
+  console.log("frame = " + frame);
+ }
+
+ function updateFramedisplay() {
+  //OHHH I see, when it starts at year 0 it displays the year correctly,
+  //but when it pauses, then it adds the start year to the current year which is
+  //>=1776
+  document.getElementById( 'frame' ).innerHTML = frame + startYear;
+ }
+
+
+// initilize variables
+var frame = 0;
+var startYear = 1776;
+var interval;
+var speed = 500; // time between frames in milliseconds
+var playing=false;
 
 // function to start stop
 function togglePlay() {
   if ( playing==true ) {
     playing=false;
-    console.log("Current Frame is " + currentFrame);
+    console.log("Year: " + frame);
     // stop playing (clear interval)
     clearInterval( interval );
   }
@@ -211,17 +237,16 @@ function togglePlay() {
     //Currently the "toggle" part of this isn't really working, but why?
     // start playing
     interval = setInterval(function () {
-      // iterate the frame
-      currentFrame++;
+      frame++;
       
       // check if maybe we need to wrap to frame 0
-      if ( currentFrame >= mapData.length )
-        currentFrame = 0;
+      if ( frame >= mapData.length )
+        frame = 0;
       // set data to the chart for the current frame
      drawBubbles();
      map.validateData();
       // set frame indicator
-      document.getElementById( 'frame' ).innerHTML = currentFrame + year;
+      updateFramedisplay();
       
     }, speed);
     playing=true;
@@ -289,3 +314,4 @@ function testFunc() {
 */
 //testFunc();
 //drawBubbles();
+makeTimeline();
