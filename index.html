@@ -9,12 +9,14 @@
 <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
 <!--<script src="https://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>-->
 <script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
-<script src="index.js"> </script>
+
   </head>
   <body>
   	<div id="mapdiv" style="width: 100%; height: 500px;"></div>
-<input type="button" value="play/pause" onclick="togglePlay();" />
+<input type="button" id="play-button" value="play/pause"onclick="togglePlay();" />
 &nbsp;&nbsp;&nbsp;
 Current frame: <span id="frame">0</span>
+
+<script src="index.js"> </script>
   </body>
 </html>

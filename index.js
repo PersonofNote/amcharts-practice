@@ -76,20 +76,13 @@ var map = AmCharts.makeChart( "mapdiv", {
   */
   "dataProvider": {
     "map": "worldLow",
-    //"areas": mapData[0],
     "images": []
   },
-  /* I'm not using a value, trying to figure out how to avoid the heatmap part
-  "valueLegend": {
-    "right": 1,
-    "minValue": "little",
-    "maxValue": "a lot!"
-  }
-  */
 } );
 
 //console.log(map)
 
+//Probably defunct
 var empty = function initImg() {
   for (var i=0;i<mapData[0].length;i++){
   var dataItem = mapData[0][i];
@@ -99,12 +92,11 @@ var empty = function initImg() {
   var long = dataItem.longitude;
   var title = dataItem.name;
   img.push({
-            //Probably have some kind of unique identifier so that you can find it to splice it out
             type: "circle",
             width: 10,
             height: 10,
             color: `rgba(65, 65, 65, 1)`,
-            longitude: lat, //Make sure to update with the correct lat and long
+            longitude: lat,
             latitude: long,
             title: title,
             value: value
@@ -112,6 +104,7 @@ var empty = function initImg() {
   }
 }
 
+//Defunct, plus this came from Stack Overflow. Leaving to study further.
 function remove(arr) {
     var what, a = arguments, L = a.length, ax;
     while (L > 1 && arr.length) {
@@ -133,100 +126,65 @@ function drawBubbles() {
     var title = dataItem.name;
     var img = map.dataProvider.images
     var match = img.filter(image => (image.title === title));
-    console.log(match.length + "matches found for " + title);
-    console.log("Value of " + title + " = " + value);
+    //console.log(match.length + "matches found for " + title);
+    //console.log("Value of " + title + " = " + value);
     var type;
     var r = 65*value;
     var g = 65*value;
     var b = 237*value;
     var alpha = 1*value;
+    //First time, push to array.
     if ( match.length < 1) {
       img.push({
             type: "circle",
             width: 10,
             height: 10,
             color: `rgba(51, 102, 255, ${alpha})`,
-            longitude: lat, //Make sure to update with the correct lat and long
+            longitude: lat,
             latitude: long,
             title: title,
             value: value
         });
     } else {
-
+        //If already in array, update the visibility based on whether there is an embassy, a legation, or nothing.
           if(value > 0) {
+            //Consider comparing the current value to the previous value, and playing an animation on change, to draw attention to it.
               img[i].type="circle";
               img[i].color = `rgba(51, 102, 255, ${alpha})`
           }else if (value == 0) {
           //var exists = img.filter(image => (image.title === title))
             //if (exists.length>0){
             img[i].type="";
-            console.log("Image at index" + img[i].type);
+            //console.log("Image at index" + img[i].type);
             img[i].color = `rgba(51, 102, 255, ${alpha})`;
             }
           }
-
-          
-          console.log ("adding " + title)
-          console.log(img);
-       // }
-       /*
-       } else if (value == 0) {
-      //Check if a circle with this id already exists.
-      //If it does exist, remove it from the array.
-      //Otherwise, do nothing
-    //var filteredImg = img.filter(image => (image.title === title));
-   
-    console.log("removing " + exists[0].title)
-   img = remove(img, title);
-   console.log(img);
-    }
-    } else {
-      return;
-    }
-    */
   }
 }
-
-
-/*
-function drawCircles() {
-  for (var i = 0; i < mapData[currentFrame].length; i++) {
-        var dataItem = mapData[currentFrame][i];
-        var value = mapData[currentFrame].value;
-        console.log(dataItem);
-
-        if (value > 0) {
-          dataProvider.images.push({
-            type: "circle",
-            width: 20,
-            height: 20,
-            color: "red",
-            longitude: -97,
-            latitude: 38,
-            title: dataItem.id,
-            value: value
-        });
-        }
-    }
-}
-*/
 
 /**
  * The code responsible for animating the motion map data
  */
 
+/*
+  function initElement() {
+        var p = document.getElementById("play-button");
+        p.onclick = togglePlay;
+        console.log(playing);
+      };
+*/
 // initilize variables
-var currentFrame = 2;
+var currentFrame = 0;
 var interval;
-var speed = 400;
+var speed = 500;
+var playing=false;
 
-console.log(interval); // time between frames in milliseconds
+//console.log(interval); // time between frames in milliseconds
 
 // function to start stop
 function togglePlay() {
-  
-  // check if animation is playing (intverla is set)
-  if ( interval ) {
+  if ( playing==true ) {
+    playing=false;
     console.log("Current Frame is " + currentFrame);
     // stop playing (clear interval)
     clearInterval( interval );
@@ -234,30 +192,27 @@ function togglePlay() {
   else {
     //Currently the "toggle" part of this isn't really working, but why?
     // start playing
-    interval = setInterval( function () {
+    interval = setInterval(function () {
       // iterate the frame
       currentFrame++;
       
       // check if maybe we need to wrap to frame 0
       if ( currentFrame >= mapData.length )
         currentFrame = 0;
-      
       // set data to the chart for the current frame
-      //Probably replace this with just the bubbles over time
      drawBubbles();
-     //map.dataProvider.areas = mapData[ currentFrame ];
-      map.validateData();
-      
+     map.validateData();
       // set frame indicator
       document.getElementById( 'frame' ).innerHTML = currentFrame;
       
-    }, speed );
-    
+    }, speed);
+    playing=true;
   }
+console.log(playing);
 }
 
-
-
+//initElement();
+/*
 //Test function to push static data
 function testFunc() {
   var dataYear = mapData[0];
@@ -314,6 +269,6 @@ function testFunc() {
   //console.log(img);
       
 }
-
+*/
 //testFunc();
-drawBubbles();
+//drawBubbles();
