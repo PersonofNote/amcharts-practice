@@ -55,8 +55,8 @@ var dummyImg = {
             width: 15,
             height: 15,
             color: `rgba(64, 64, 64, 0.8)`,
-            longitude:44, //Replace with latlong[id].longitude
-            latitude:33, //Replace with latlong[id].latitude
+            longitude:54, //Replace with latlong[id].longitude
+            latitude:100, //Replace with latlong[id].latitude
             title: "FR",
             value: 1
 }
@@ -94,7 +94,10 @@ function drawBubbles() {
   var dataItem = mapData[currentFrame][i];
   var value = mapData[currentFrame][i].value;
   var code = dataItem.code;
+  var lat = dataItem.latitude;
+  var long = dataItem.longitude;
   var img = map.dataProvider.images
+  var exists = img.filter(image => (image.title === code));
  
   console.log(img);
   //console.log(dataItem);
@@ -118,21 +121,19 @@ function drawBubbles() {
           var b = 237*value;
           //NOT WORKING. Getting closer, but there's something screwy with the way
           //I'm implementing this.
-          if (img.includes(this.code)) {
-            return;
-          } else {
+         //if (!exists[0].title === code) {
           img.push({
             //Probably have some kind of unique identifier so that you can find it to splice it out
             type: "circle",
             width: 100,
             height: 100,
             color: "rgba(64, 64, 237, 0.7)",
-            longitude: code.longitude, //Make sure to update with the correct lat and long
-            latitude: code.latitude,
+            longitude: lat, //Make sure to update with the correct lat and long
+            latitude: long,
             title: dataItem.code,
             value: value
         });
-        }
+       // }
     } else {
       //Check if a circle with this id already exists.
       //If it does exist, remove it from the array.
@@ -210,22 +211,36 @@ function togglePlay() {
 }
 
 
+
 //Test function to push static data
 function testFunc() {
   var dataYear = mapData[0];
   var dataItem = mapData[0][1];
   var value = mapData[0][1].value;
-  //console.log(dataYear);
+  var lat = dataItem.latitude;
+  var long = dataItem.longitude;
   console.log("Code = " + dataItem.code);
   console.log("Value = " + value);
   var code = dataItem.code
   console.log("Long = " + dataItem.longitude);
-  console.log("img = " + map.dataProvider.images);
-
+  var img = map.dataProvider.images;
+  console.log(img[0].title);
+  var exists = img.filter(image => (image.title === code));
+  //console.log(exists[0].title);
+  if (exists.length > 0){
+    //Ok, I'm more on the right track here.
+    //if true, then find it and remove it.
+  console.log(true);
+  } else {
+    console.log(false);
+  }
+  if (value <= 0) {
+  }
 
  if (value > 0) {
+
   //Animate this to make it all pretty
-         if (!img.include("FR"))
+         //if (exists[0].title === code){
           var alpha = 1*value;
           var b = 237*value;
           map.dataProvider.images.push({
@@ -233,11 +248,12 @@ function testFunc() {
             width: 15,
             height: 15,
             color: `rgba(64, 64, ${b}, 0.8)`,
-            longitude: code.longitude, //Replace with latlong[id].longitude
-            latitude: code.latitude, //Replace with latlong[id].latitude
+            longitude: lat, //Replace with latlong[id].longitude
+            latitude: long, //Replace with latlong[id].latitude
             title: dataItem.code,
             value: value
         });
+        //}
 
     } else {
       //Check if the image with this id already exists.
