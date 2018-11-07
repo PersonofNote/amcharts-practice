@@ -44,9 +44,9 @@ latlong["US"] = {"latitude":38, "longitude":-97};
 
 //Test variable with absurd dummy data
 var mapData = [
-[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":54, "longitude":-100 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":-97} ],
-[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":-100 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":-97} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":-100 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":-97} ],
+[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":45 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":97} ],
+[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":45 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":97} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":45 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":97} ],
 
 ];
 
@@ -55,9 +55,10 @@ var dummyImg = {
             width: 15,
             height: 15,
             color: `rgba(64, 64, 64, 0.8)`,
-            longitude:54, //Replace with latlong[id].longitude
-            latitude:100, //Replace with latlong[id].latitude
-            title: "FR",
+            longitude:2.21, //Replace with latlong[id].longitude
+            latitude:46.23, //Replace with latlong[id].latitude
+            title: "France",
+            code: "FR",
             value: 1
 }
 
@@ -76,7 +77,7 @@ var map = AmCharts.makeChart( "mapdiv", {
   "dataProvider": {
     "map": "worldLow",
     //"areas": mapData[0],
-    "images": [dummyImg]
+    "images": []
   },
   /* I'm not using a value, trying to figure out how to avoid the heatmap part
   "valueLegend": {
@@ -89,6 +90,39 @@ var map = AmCharts.makeChart( "mapdiv", {
 
 //console.log(map)
 
+var empty = function initImg() {
+  for (var i=0;i<mapData[0].length;i++){
+  var dataItem = mapData[0][i];
+  var value = mapData[0][i].value;
+  var code = dataItem.code;
+  var lat = dataItem.latitude;
+  var long = dataItem.longitude;
+  var title = dataItem.name;
+  img.push({
+            //Probably have some kind of unique identifier so that you can find it to splice it out
+            type: "circle",
+            width: 10,
+            height: 10,
+            color: `rgba(65, 65, 65, 1)`,
+            longitude: lat, //Make sure to update with the correct lat and long
+            latitude: long,
+            title: title,
+            value: value
+        });
+  }
+}
+
+function remove(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
+}
+
 function drawBubbles() {
   for (var i = 0; i < mapData[currentFrame].length; i++) {
   var dataItem = mapData[currentFrame][i];
@@ -96,12 +130,18 @@ function drawBubbles() {
   var code = dataItem.code;
   var lat = dataItem.latitude;
   var long = dataItem.longitude;
+  var title = dataItem.name;
   var img = map.dataProvider.images
-  var exists = img.filter(image => (image.title === code));
- 
-  console.log(img);
+  var match = img.filter(image => (image.title === title));
+  console.log(match.length + "matches found for " + title);
+ /* if (filteredImg.length>0){
+    img = img.filter(image => (image.title != title));
+  } else {
+    img = img;
+  }
+  */
   //console.log(dataItem);
-  //console.log(value);
+  console.log("Value of " + title + " = " + value);
 
   /*
   How to structure this if-statement? If exists and the value is the same as the previous value
@@ -109,38 +149,63 @@ function drawBubbles() {
   if value is 1, push new bubble. How to write?
   */
 
- if (value > 0) {
+
   //Animate this to make it all pretty
   /*NOTE: The event data should be changed to 0, 0.5, and 1.
   In theory, since you're looking for a value of > 0, you can make the
   color/size/opacity dependent on if it's 0.5 or 1 (for legation vs ebassy).
   Do you have to loop through every country every time, though? That kind of stinks,
   but it's looking like yes.
-  */ 
-          var alpha = 1*value;
+  */      var type;
+          var r = 65*value;
+          var g = 65*value;
           var b = 237*value;
-          //NOT WORKING. Getting closer, but there's something screwy with the way
-          //I'm implementing this.
-         //if (!exists[0].title === code) {
-          img.push({
+          var alpha = 1*value;
+    //Set image to visible or invisible
+    if ( match.length < 1) {
+      type = "circle";
+      
+      img.push({
             //Probably have some kind of unique identifier so that you can find it to splice it out
-            type: "circle",
-            width: 100,
-            height: 100,
-            color: "rgba(64, 64, 237, 0.7)",
+            type: type,
+            width: 10,
+            height: 10,
+            color: `rgba(${r}, ${g}, ${b}, ${alpha})`,
             longitude: lat, //Make sure to update with the correct lat and long
             latitude: long,
-            title: dataItem.code,
+            title: title,
             value: value
         });
-       // }
     } else {
+          //var exists = img.filter(image => (image.title === title))
+            //if (exists.length>0){
+            img.indexOf(title).type="";
+            console.log("Image at index" + img.indexOf(dataItem))
+            img.indexOf(title).color = " `rgba(${r}, ${g}, ${b}, ${alpha})`";
+            }
+          }
+
+          
+          console.log ("adding " + title)
+          console.log(img);
+       // }
+       /*
+       } else if (value == 0) {
       //Check if a circle with this id already exists.
       //If it does exist, remove it from the array.
       //Otherwise, do nothing
+    //var filteredImg = img.filter(image => (image.title === title));
+   
+    console.log("removing " + exists[0].title)
+   img = remove(img, title);
+   console.log(img);
     }
+    } else {
+      return;
+    }
+    */
 }
-}
+
 
 /*
 function drawCircles() {
@@ -170,7 +235,7 @@ function drawCircles() {
  */
 
 // initilize variables
-var currentFrame = 0;
+var currentFrame = 2;
 var interval;
 var speed = 400;
 
@@ -224,12 +289,15 @@ function testFunc() {
   var code = dataItem.code
   console.log("Long = " + dataItem.longitude);
   var img = map.dataProvider.images;
-  console.log(img[0].title);
-  var exists = img.filter(image => (image.title === code));
-  //console.log(exists[0].title);
+ // console.log(img[0].title);
+  var exists = img.filter(image => (image.title != code));
+  //console.log(exists);
   if (exists.length > 0){
     //Ok, I'm more on the right track here.
     //if true, then find it and remove it.
+    //I feel like this is a lot of loops.
+    //But then again computers are powerful.
+    //Can probably handle looping through 400 entries a second.
   console.log(true);
   } else {
     console.log(false);
@@ -248,9 +316,9 @@ function testFunc() {
             width: 15,
             height: 15,
             color: `rgba(64, 64, ${b}, 0.8)`,
-            longitude: lat, //Replace with latlong[id].longitude
-            latitude: long, //Replace with latlong[id].latitude
-            title: dataItem.code,
+            longitude: lat, 
+            latitude: long,
+            title: dataItem.name,
             value: value
         });
         //}
@@ -260,7 +328,11 @@ function testFunc() {
       //If it does exist, remove it from the array.
       //Otherwise, do nothing.
     }
-  console.log(map.dataProvider.images);
+  //console.log(img);
+  img = exists;
+  //console.log(img);
+      
 }
 
-testFunc();
+//testFunc();
+drawBubbles();
