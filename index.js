@@ -80,14 +80,14 @@ var map = AmCharts.makeChart( "mapdiv", {
 
 function drawBubbles() {
   for (var i = 0; i < mapData[currentFrame].length; i++) {
-  var dataYear = mapData[currentFrame][i];
   var dataItem = mapData[currentFrame][i];
   var value = mapData[currentFrame][i].value;
   var code = dataItem.code;
+  var img = map.dataProvider.images
  
-  console.log(dataYear);
-  console.log(dataItem);
-  console.log(value);
+  console.log(img);
+  //console.log(dataItem);
+  //console.log(value);
 
   /*
   How to structure this if-statement? If exists and the value is the same as the previous value
@@ -105,7 +105,11 @@ function drawBubbles() {
   */ 
           var alpha = 1*value;
           var b = 237*value;
-          var img = map.dataProvider.images
+          //NOT WORKING. Getting closer, but there's something screwy with the way
+          //I'm implementing this.
+          if (img.includes(code)) {
+            return;
+          } else {
           img.push({
             //Probably have some kind of unique identifier so that you can find it to splice it out
             type: "circle",
@@ -117,8 +121,7 @@ function drawBubbles() {
             title: dataItem.code,
             value: value
         });
-          console.log(img);
-
+        }
     } else {
       //Check if a circle with this id already exists.
       //If it does exist, remove it from the array.
