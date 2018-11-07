@@ -11,7 +11,8 @@
       *This might take a little bit, though, right? That kinda sucks, but I think it's necessary for extendability.
       *Also add a column for country?
   *Consider setting a "zoom" value so that it doesn't zoom out every time you press play. Would be cool for observing contentious areas through a diplomatic lens.
-
+    *Also if you do this, disable pan at zoom level 1.
+    *If you don't do this, disable both pan and zoom, it's currently very distracting.
   Timeline notes and thoughts:
     -Create container.
     -Create divs for each year between start and mapData.length (or whatever the number of years will be) (This will allow for more years to be added to the spreadsheet.)
@@ -107,6 +108,7 @@ var map = AmCharts.makeChart( "mapdiv", {
 //console.log(map)
 
 //Probably defunct
+/*
 var empty = function initImg() {
   for (var i=0;i<mapData[0].length;i++){
   var dataItem = mapData[0][i];
@@ -127,6 +129,7 @@ var empty = function initImg() {
         });
   }
 }
+*/
 
 //Defunct, plus this came from Stack Overflow. Leaving to study further.
 function remove(arr) {
@@ -195,6 +198,7 @@ function drawBubbles() {
   for (var i=0;i<=mapData.length;i++){
     tick = document.createElement("div");
     tick.className = "tick"; 
+    tick.id = i+startYear;
     tick.innerHTML=i+startYear;
     tick.onclick = setYear;
     console.log(tick);
@@ -203,10 +207,13 @@ function drawBubbles() {
  }
 
  function setYear() {
-  frame = 2;
-  togglePlay();
+  //Right now giving it a static value works,
+  //but passing it this.id causes it to add the id onto
+  //the end of the year and start over for some reason.
+  frame = this.id;
+  playing=false;
   updateFramedisplay();
-  console.log("Clicked");
+  console.log(this.id);
   console.log("frame = " + frame);
  }
 
