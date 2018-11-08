@@ -9,6 +9,7 @@
       in all the in-between indices with the previous event.
       *Also filling in all indices around the first and last event with zeros.
         -This is partially solved by pushing the country's entry to the array when legation is etablished, but it also just stays that value.
+        -WHICH IS ACTUALLY GREAT, because that means the opening/closing dates should be enough, I think. Fingers crossed, it should just stay as-is until the value is explicitly changed?
       *Also add a column for country?
   *Consider setting a "zoom" value so that it doesn't zoom out every time you press play. Would be cool for observing contentious areas through a diplomatic lens.
     *Also if you do this, disable pan at zoom level 1.
@@ -79,18 +80,21 @@ var mapData = [
 [ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ]
 ];
 
+//Have to wait until I can get a web server spun up to test this part
 
-var dummyImg = {
-  type: "circle",
-            width: 15,
-            height: 15,
-            color: `rgba(64, 64, 64, 0.8)`,
-            longitude:2.21, //Replace with latlong[id].longitude
-            latitude:46.23, //Replace with latlong[id].latitude
-            title: "France",
-            code: "FR",
-            value: 1
-}
+//AmCharts.loadFile( "./Embassy-data-sorted.csv", {}, function( response ) {
+
+  /**
+   * Parse CSV
+   */
+/*
+  var data = AmCharts.parseCSV( response, {
+    "useColumnNames": true
+  } );
+  
+  console.log(data);
+});
+*/
 
 /**
  * Create the map
@@ -110,31 +114,6 @@ var map = AmCharts.makeChart( "mapdiv", {
   },
 } );
 
-//console.log(map)
-
-//Probably defunct
-/*
-var empty = function initImg() {
-  for (var i=0;i<mapData[0].length;i++){
-  var dataItem = mapData[0][i];
-  var value = mapData[0][i].value;
-  var code = dataItem.code;
-  var lat = dataItem.latitude;
-  var long = dataItem.longitude;
-  var title = dataItem.name;
-  img.push({
-            type: "circle",
-            width: 10,
-            height: 10,
-            color: `rgba(65, 65, 65, 1)`,
-            longitude: lat,
-            latitude: long,
-            title: title,
-            value: value
-        });
-  }
-}
-*/
 
 //Defunct, plus this came from Stack Overflow. Leaving to study further.
 function remove(arr) {
@@ -148,9 +127,16 @@ function remove(arr) {
     return arr;
 }
 
+function fadeIn() {
+   if (alpha < 1*value) {
+        alpha++;
+    }
+}
+
 function drawBubbles() {
   for (var i = 0; i < mapData[frame].length; i++) {
     var dataItem = mapData[frame][i];
+    //Need to change this so it reflects 0 for closed, 1 for embassy, and 0.5 for legation.
     var value = mapData[frame][i].value;
     var code = dataItem.code;
     var lat = dataItem.latitude;
@@ -164,11 +150,12 @@ function drawBubbles() {
     var r = 65*value;
     var g = 65*value;
     var b = 237*value;
-    var alpha = 1*value;
+    var alpha=1*value; //Update this to make a fadein.
     //First time, push to array.
     //Will this actually just work for the whole thing?
     //It almost does. The thing is that you need to reset all the values at restart.
     if ( match.length < 1) {
+
       img.push({
             type: "circle",
             width: 10,
@@ -217,9 +204,9 @@ function drawBubbles() {
   //Right now giving it a static value works,
   //but passing it this.id causes it to add the id onto
   //the end of the year and start over for some reason.
-  frame = this.id;
-  playing=false;
-  updateFramedisplay();
+ togglePlay();
+  frame = this.id - startYear;
+  //updateFramedisplay();
   console.log(this.id);
   console.log("frame = " + frame);
  }
@@ -229,15 +216,6 @@ function drawBubbles() {
   //but when it pauses, then it adds the start year to the current year which is
   //>=1776
   document.getElementById( 'frame' ).innerHTML = frame + startYear;
- }
-
- function resetValues() {
-  //Ok this isn't working because when we wrap, the beginning array is longer than the ending array.
-  for (var i=0;i<=mapData[frame-1].length;i++) {
-    var dataItem = mapData[frame-1][i];
-    console.log(dataItem[i]);
-    console.log("Reset all values to " + dataItem.value);
-  }
  }
 
 
@@ -257,13 +235,15 @@ function togglePlay() {
     // stop playing (clear interval)
     clearInterval( interval );
   }
-  else {
+  else if (playing == false) {
     //Currently the "toggle" part of this isn't really working, but why?
     // start playing
     interval = setInterval(function () {
       frame++;
       
       // check if maybe we need to wrap to frame 0
+      //Oh my gosh it's wrapping to 0 because I'm setting the frame to 1776, instead of i+1776, which puts it WAY
+      //past.
       if ( frame >= mapData.length ) {
          //Need to clear all the data values here so you can start over nicely.
         //resetValues();
@@ -274,6 +254,10 @@ function togglePlay() {
 
       }
      
+     //This should allow and maintain zoom values. Right now, it maintains zoom level but not latlong
+    map.dataProvider.zoomLevel = map.zoomLevel();
+    map.dataProvider.zoomLatitude = map.zoomLatitude();
+    map.dataProvider.zoomLongitude = map.zoomLongitude();
       
       // set data to the chart for the current frame
      drawBubbles();
@@ -284,7 +268,7 @@ function togglePlay() {
     }, speed);
     playing=true;
   }
-console.log(playing);
+//console.log(playing);
 }
 
 /*
