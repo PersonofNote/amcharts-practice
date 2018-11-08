@@ -14,11 +14,9 @@
   *Consider setting a "zoom" value so that it doesn't zoom out every time you press play. Would be cool for observing contentious areas through a diplomatic lens.
     *Also if you do this, disable pan at zoom level 1.
     *If you don't do this, disable both pan and zoom, it's currently very distracting.
-  Timeline notes and thoughts:
-    -Create container.
-    -Create divs for each year between start and mapData.length (or whatever the number of years will be) (This will allow for more years to be added to the spreadsheet.)
-    -Append each of them to the dom, and set the innerHTML to index + 1776 (later change to tick marks in the middle and a number).
-    -When user clicks on the line, the frame value will update to the click div's value.
+ Notes on plugging in the correct data: "firstYear should be mapdata[0][0].year." This will allow it to be modified in either direction by the loaded data.
+ Also remember that you'll have to change a few things. It's likely that you won't be using the country codes, for example, and you'll have to account for the
+ events being strings instead of 0/0.5/1. That should be relatively easy to account for.
 
 */
 
