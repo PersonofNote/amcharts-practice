@@ -189,13 +189,12 @@ function drawBubbles() {
 
  function makeTimeline() {
   var timeline = document.getElementById('timeline');
-  for (var i=0;i<=mapData.length;i++){
+  for (var i=0;i<mapData.length;i++){
     tick = document.createElement("div");
     tick.className = "tick"; 
     tick.id = i+startYear;
     tick.innerHTML=i+startYear;
     tick.onclick = setYear;
-    console.log(tick);
     timeline.appendChild(tick);
   }
  }
@@ -212,9 +211,6 @@ function drawBubbles() {
  }
 
  function updateFramedisplay() {
-  //OHHH I see, when it starts at year 0 it displays the year correctly,
-  //but when it pauses, then it adds the start year to the current year which is
-  //>=1776
   document.getElementById( 'frame' ).innerHTML = frame + startYear;
  }
 
@@ -231,7 +227,6 @@ var lastFrame = mapData[frame-1];
 function togglePlay() {
   if ( playing==true ) {
     playing=false;
-    console.log("Year: " + frame);
     // stop playing (clear interval)
     clearInterval( interval );
   }
@@ -240,6 +235,9 @@ function togglePlay() {
     // start playing
     interval = setInterval(function () {
       frame++;
+      console.log(frame);
+      //This puts a focus on the year's timeline. How to update it?
+      //document.getElementsByClassName('tick')[frame].focus()
       
       // check if maybe we need to wrap to frame 0
       //Oh my gosh it's wrapping to 0 because I'm setting the frame to 1776, instead of i+1776, which puts it WAY
@@ -247,9 +245,8 @@ function togglePlay() {
       if ( frame >= mapData.length ) {
          //Need to clear all the data values here so you can start over nicely.
         //resetValues();
-        map.dataProvider.images = [];
-
         frame = 0;
+         map.dataProvider.images = [];
 
 
       }
