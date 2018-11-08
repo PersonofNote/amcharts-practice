@@ -8,7 +8,7 @@
       *Sorting the data looking for the various events. Subtracting each instance from the previous instance, and then filling
       in all the in-between indices with the previous event.
       *Also filling in all indices around the first and last event with zeros.
-      *This might take a little bit, though, right? That kinda sucks, but I think it's necessary for extendability.
+        -This is partially solved by pushing the country's entry to the array when legation is etablished, but it also just stays that value.
       *Also add a column for country?
   *Consider setting a "zoom" value so that it doesn't zoom out every time you press play. Would be cool for observing contentious areas through a diplomatic lens.
     *Also if you do this, disable pan at zoom level 1.
@@ -70,10 +70,15 @@ var mapData = [
 [ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
 [ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 }],
 [ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
+[ {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
 [ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
-
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 }, {"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ]
 ];
+
 
 var dummyImg = {
   type: "circle",
@@ -260,10 +265,10 @@ function togglePlay() {
       
       // check if maybe we need to wrap to frame 0
       if ( frame >= mapData.length ) {
-        resetValues();
-        console.log("Last frame length = " + lastFrame.length);
          //Need to clear all the data values here so you can start over nicely.
         //resetValues();
+        map.dataProvider.images = [];
+
         frame = 0;
 
 
