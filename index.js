@@ -67,11 +67,11 @@ latlong["US"] = {"latitude":38, "longitude":-97};
 
 //Test variable with absurd dummy data
 var mapData = [
-[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
+[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 }],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
 [ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
+[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
 
 ];
 
@@ -161,6 +161,8 @@ function drawBubbles() {
     var b = 237*value;
     var alpha = 1*value;
     //First time, push to array.
+    //Will this actually just work for the whole thing?
+    //It almost does. The thing is that you need to reset all the values at restart.
     if ( match.length < 1) {
       img.push({
             type: "circle",
@@ -224,6 +226,15 @@ function drawBubbles() {
   document.getElementById( 'frame' ).innerHTML = frame + startYear;
  }
 
+ function resetValues() {
+  //Ok this isn't working because when we wrap, the beginning array is longer than the ending array.
+  for (var i=0;i<=mapData[frame-1].length;i++) {
+    var dataItem = mapData[frame-1][i];
+    console.log(dataItem[i]);
+    console.log("Reset all values to " + dataItem.value);
+  }
+ }
+
 
 // initilize variables
 var frame = 0;
@@ -231,6 +242,7 @@ var startYear = 1776;
 var interval;
 var speed = 500; // time between frames in milliseconds
 var playing=false;
+var lastFrame = mapData[frame-1];
 
 // function to start stop
 function togglePlay() {
@@ -247,8 +259,17 @@ function togglePlay() {
       frame++;
       
       // check if maybe we need to wrap to frame 0
-      if ( frame >= mapData.length )
+      if ( frame >= mapData.length ) {
+        resetValues();
+        console.log("Last frame length = " + lastFrame.length);
+         //Need to clear all the data values here so you can start over nicely.
+        //resetValues();
         frame = 0;
+
+
+      }
+     
+      
       // set data to the chart for the current frame
      drawBubbles();
      map.validateData();
