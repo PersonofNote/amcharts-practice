@@ -78,41 +78,44 @@ var mapData = [
 [ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ]
 ];
 
+var mapData = "./embassy-data-sorted-1.csv";
+
 //Have to wait until I can get a web server spun up to test this part
 
-//AmCharts.loadFile( "./Embassy-data-sorted.csv", {}, function( response ) {
+var parsedData = AmCharts.loadFile( mapData, {}, function( response ) {
 
   /**
    * Parse CSV
    */
-/*
+
   var data = AmCharts.parseCSV( response, {
     "useColumnNames": true
   } );
   
-  console.log(data);
+  console.log(data[99]);
 });
-*/
+
 
 /**
  * Create the map
  */
+
 var map = AmCharts.makeChart( "mapdiv", {
   "type": "map",
   "theme": "black",
 
-  /* Still working with dummy data for now, hold tight.
+  //Still working with dummy data for now, hold tight.
   "dataLoader": {
-    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/22422.json"
+    "url": parsedData
   },
-  */
+  
   "dataProvider": {
     "map": "worldLow",
     "images": []
   },
 } );
 
-
+ console.log(parsedData);
 //Defunct, plus this came from Stack Overflow. Leaving to study further.
 function remove(arr) {
     var what, a = arguments, L = a.length, ax;
@@ -326,4 +329,4 @@ function testFunc() {
 */
 //testFunc();
 //drawBubbles();
-makeTimeline();
+//makeTimeline();
