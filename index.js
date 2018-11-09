@@ -5,12 +5,7 @@
   *Import and parse JSON data
   *Format the data so that it works for your needs.
     *This means:
-      *Sorting the data looking for the various events. Subtracting each instance from the previous instance, and then filling
-      in all the in-between indices with the previous event.
-      *Also filling in all indices around the first and last event with zeros.
-        -This is partially solved by pushing the country's entry to the array when legation is etablished, but it also just stays that value.
-        -WHICH IS ACTUALLY GREAT, because that means the opening/closing dates should be enough, I think. Fingers crossed, it should just stay as-is until the value is explicitly changed?
-      *Also add a column for country?
+      Figuring out how to break the CSV into rows based on year. Probably using array.match?
   *Consider setting a "zoom" value so that it doesn't zoom out every time you press play. Would be cool for observing contentious areas through a diplomatic lens.
     *Also if you do this, disable pan at zoom level 1.
     *If you don't do this, disable both pan and zoom, it's currently very distracting.
@@ -92,7 +87,11 @@ var parsedData = AmCharts.loadFile( mapData, {}, function( response ) {
     "useColumnNames": true
   } );
   
-  console.log(data[99]);
+  //Investigating what this returns
+  for (var i=0;i<data.length;i++){
+  console.log(data[i]);
+}
+
 });
 
 
