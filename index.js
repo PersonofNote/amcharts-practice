@@ -15,117 +15,82 @@
 
 */
 
-/**
- * Set data for all frames
- */
-/*var mapData = [
-  [ { "id" : "US-AL","value" : 4447100 }, { "id" : "US-AK","value" : 626932 }, { "id" : "US-AZ","value" : 5130632 }, { "id" : "US-AR","value" : 2673400 }, { "id" : "US-CA","value" : 33871648 }, { "id" : "US-CO","value" : 4301261 }, { "id" : "US-CT","value" : 3405565 }, { "id" : "US-DE","value" : 783600 }, { "id" : "US-FL","value" : 15982378 }, { "id" : "US-GA","value" : 8186453 }, { "id" : "US-HI","value" : 1211537 }, { "id" : "US-ID","value" : 1293953 }, { "id" : "US-IL","value" : 12419293 }, { "id" : "US-IN","value" : 6080485 }, { "id" : "US-IA","value" : 2926324 }, { "id" : "US-KS","value" : 2688418 }, { "id" : "US-KY","value" : 4041769 }, { "id" : "US-LA","value" : 4468976 }, { "id" : "US-ME","value" : 1274923 }, { "id" : "US-MD","value" : 5296486 }, { "id" : "US-MA","value" : 6349097 }, { "id" : "US-MI","value" : 9938444 }, { "id" : "US-MN","value" : 4919479 }, { "id" : "US-MS","value" : 2844658 }, { "id" : "US-MO","value" : 5595211 }, { "id" : "US-MT","value" : 902195 }, { "id" : "US-NE","value" : 1711263 }, { "id" : "US-NV","value" : 1998257 }, { "id" : "US-NH","value" : 1235786 }, { "id" : "US-NJ","value" : 8414350 }, { "id" : "US-NM","value" : 1819046 }, { "id" : "US-NY","value" : 18976457 }, { "id" : "US-NC","value" : 8049313 }, { "id" : "US-ND","value" : 642200 }, { "id" : "US-OH","value" : 11353140 }, { "id" : "US-OK","value" : 3450654 }, { "id" : "US-OR","value" : 3421399 }, { "id" : "US-PA","value" : 12281054 }, { "id" : "US-RI","value" : 1048319 }, { "id" : "US-SC","value" : 4012012 }, { "id" : "US-SD","value" : 754844 }, { "id" : "US-TN","value" : 5689283 }, { "id" : "US-TX","value" : 20851820 }, { "id" : "US-UT","value" : 2233169 }, { "id" : "US-VT","value" : 608827 }, { "id" : "US-VA","value" : 7078515 }, { "id" : "US-WA","value" : 5894121 }, { "id" : "US-WV","value" : 1808344 }, { "id" : "US-WI","value" : 5363675 }, { "id" : "US-WY","value" : 493782 }],
-  [ { "id" : "US-AL","value" : 3857213 }, { "id" : "US-AK","value" : 512353 }, { "id" : "US-AZ","value" : 6474943 }, { "id" : "US-AR","value" : 1613487 }, { "id" : "US-CA","value" : 46454237 }, { "id" : "US-CO","value" : 5276342 }, { "id" : "US-CT","value" : 2937489 }, { "id" : "US-DE","value" : 1140367 }, { "id" : "US-FL","value" : 8150390 }, { "id" : "US-GA","value" : 9319792 }, { "id" : "US-HI","value" : 1641383 }, { "id" : "US-ID","value" : 1807634 }, { "id" : "US-IL","value" : 14309001 }, { "id" : "US-IN","value" : 5643161 }, { "id" : "US-IA","value" : 2290590 }, { "id" : "US-KS","value" : 1388941 }, { "id" : "US-KY","value" : 5877546 }, { "id" : "US-LA","value" : 2710137 }, { "id" : "US-ME","value" : 887832 }, { "id" : "US-MD","value" : 6735989 }, { "id" : "US-MA","value" : 4092038 }, { "id" : "US-MI","value" : 10540183 }, { "id" : "US-MN","value" : 4549488 }, { "id" : "US-MS","value" : 1728433 }, { "id" : "US-MO","value" : 4110640 }, { "id" : "US-MT","value" : 485443 }, { "id" : "US-NE","value" : 1204361 }, { "id" : "US-NV","value" : 1367224 }, { "id" : "US-NH","value" : 934281 }, { "id" : "US-NJ","value" : 12170334 }, { "id" : "US-NM","value" : 978281 }, { "id" : "US-NY","value" : 23200864 }, { "id" : "US-NC","value" : 9475991 }, { "id" : "US-ND","value" : 751860 }, { "id" : "US-OH","value" : 14009678 }, { "id" : "US-OK","value" : 4529930 }, { "id" : "US-OR","value" : 2579409 }, { "id" : "US-PA","value" : 16925566 }, { "id" : "US-RI","value" : 1094406 }, { "id" : "US-SC","value" : 5419041 }, { "id" : "US-SD","value" : 483037 }, { "id" : "US-TN","value" : 7238756 }, { "id" : "US-TX","value" : 16853653 }, { "id" : "US-UT","value" : 1351618 }, { "id" : "US-VT","value" : 645134 }, { "id" : "US-VA","value" : 4828577 }, { "id" : "US-WA","value" : 4204059 }, { "id" : "US-WV","value" : 1032342 }, { "id" : "US-WI","value" : 6421507 }, { "id" : "US-WY","value" : 688018 }],
-  [ { "id" : "US-AL","value" : 3495886 }, { "id" : "US-AK","value" : 273464 }, { "id" : "US-AZ","value" : 5783415 }, { "id" : "US-AR","value" : 1125443 }, { "id" : "US-CA","value" : 32947849 }, { "id" : "US-CO","value" : 6435014 }, { "id" : "US-CT","value" : 2207354 }, { "id" : "US-DE","value" : 1207507 }, { "id" : "US-FL","value" : 7877993 }, { "id" : "US-GA","value" : 8151783 }, { "id" : "US-HI","value" : 1355466 }, { "id" : "US-ID","value" : 1589266 }, { "id" : "US-IL","value" : 21413920 }, { "id" : "US-IN","value" : 4954029 }, { "id" : "US-IA","value" : 1708691 }, { "id" : "US-KS","value" : 1664274 }, { "id" : "US-KY","value" : 3521809 }, { "id" : "US-LA","value" : 2563483 }, { "id" : "US-ME","value" : 613457 }, { "id" : "US-MD","value" : 9591199 }, { "id" : "US-MA","value" : 4087820 }, { "id" : "US-MI","value" : 11028092 }, { "id" : "US-MN","value" : 4840700 }, { "id" : "US-MS","value" : 2569575 }, { "id" : "US-MO","value" : 3817500 }, { "id" : "US-MT","value" : 426905 }, { "id" : "US-NE","value" : 1657743 }, { "id" : "US-NV","value" : 1354092 }, { "id" : "US-NH","value" : 1324879 }, { "id" : "US-NJ","value" : 15361023 }, { "id" : "US-NM","value" : 508696 }, { "id" : "US-NY","value" : 25790378 }, { "id" : "US-NC","value" : 6668153 }, { "id" : "US-ND","value" : 688847 }, { "id" : "US-OH","value" : 18829380 }, { "id" : "US-OK","value" : 6247139 }, { "id" : "US-OR","value" : 3709616 }, { "id" : "US-PA","value" : 11794204 }, { "id" : "US-RI","value" : 1618596 }, { "id" : "US-SC","value" : 6336070 }, { "id" : "US-SD","value" : 389039 }, { "id" : "US-TN","value" : 6189746 }, { "id" : "US-TX","value" : 8975875 }, { "id" : "US-UT","value" : 939607 }, { "id" : "US-VT","value" : 801370 }, { "id" : "US-VA","value" : 4438451 }, { "id" : "US-WA","value" : 2900919 }, { "id" : "US-WV","value" : 654993 }, { "id" : "US-WI","value" : 5613588 }, { "id" : "US-WY","value" : 640357 }],
-  [ { "id" : "US-AL","value" : 2015221 }, { "id" : "US-AK","value" : 259653 }, { "id" : "US-AZ","value" : 5130917 }, { "id" : "US-AR","value" : 1593861 }, { "id" : "US-CA","value" : 22062560 }, { "id" : "US-CO","value" : 6056342 }, { "id" : "US-CT","value" : 3144132 }, { "id" : "US-DE","value" : 1384570 }, { "id" : "US-FL","value" : 10585137 }, { "id" : "US-GA","value" : 10511513 }, { "id" : "US-HI","value" : 924399 }, { "id" : "US-ID","value" : 1192301 }, { "id" : "US-IL","value" : 19308726 }, { "id" : "US-IN","value" : 4937543 }, { "id" : "US-IA","value" : 2324023 }, { "id" : "US-KS","value" : 2285791 }, { "id" : "US-KY","value" : 3256938 }, { "id" : "US-LA","value" : 1778289 }, { "id" : "US-ME","value" : 576006 }, { "id" : "US-MD","value" : 7810247 }, { "id" : "US-MA","value" : 5965988 }, { "id" : "US-MI","value" : 14647843 }, { "id" : "US-MN","value" : 2460996 }, { "id" : "US-MS","value" : 2676609 }, { "id" : "US-MO","value" : 4939040 }, { "id" : "US-MT","value" : 621883 }, { "id" : "US-NE","value" : 2013133 }, { "id" : "US-NV","value" : 1174575 }, { "id" : "US-NH","value" : 1608275 }, { "id" : "US-NJ","value" : 18075341 }, { "id" : "US-NM","value" : 274337 }, { "id" : "US-NY","value" : 28622147 }, { "id" : "US-NC","value" : 6469392 }, { "id" : "US-ND","value" : 751649 }, { "id" : "US-OH","value" : 22070718 }, { "id" : "US-OK","value" : 7783082 }, { "id" : "US-OR","value" : 5020495 }, { "id" : "US-PA","value" : 9916041 }, { "id" : "US-RI","value" : 2184193 }, { "id" : "US-SC","value" : 4748130 }, { "id" : "US-SD","value" : 371119 }, { "id" : "US-TN","value" : 6149575 }, { "id" : "US-TX","value" : 12795002 }, { "id" : "US-UT","value" : 910838 }, { "id" : "US-VT","value" : 478320 }, { "id" : "US-VA","value" : 4728272 }, { "id" : "US-WA","value" : 2169499 }, { "id" : "US-WV","value" : 418734 }, { "id" : "US-WI","value" : 4640961 }, { "id" : "US-WY","value" : 381984 }],
-  [ { "id" : "US-AL","value" : 1407390 }, { "id" : "US-AK","value" : 339948 }, { "id" : "US-AZ","value" : 5411870 }, { "id" : "US-AR","value" : 1336816 }, { "id" : "US-CA","value" : 14933083 }, { "id" : "US-CO","value" : 7190340 }, { "id" : "US-CT","value" : 4705756 }, { "id" : "US-DE","value" : 988290 }, { "id" : "US-FL","value" : 12161320 }, { "id" : "US-GA","value" : 11987545 }, { "id" : "US-HI","value" : 1197701 }, { "id" : "US-ID","value" : 1249591 }, { "id" : "US-IL","value" : 15137279 }, { "id" : "US-IN","value" : 6338826 }, { "id" : "US-IA","value" : 3393051 }, { "id" : "US-KS","value" : 2483388 }, { "id" : "US-KY","value" : 4221179 }, { "id" : "US-LA","value" : 2598649 }, { "id" : "US-ME","value" : 748823 }, { "id" : "US-MD","value" : 8549192 }, { "id" : "US-MA","value" : 8585587 }, { "id" : "US-MI","value" : 20516376 }, { "id" : "US-MN","value" : 2961011 }, { "id" : "US-MS","value" : 2454117 }, { "id" : "US-MO","value" : 4255812 }, { "id" : "US-MT","value" : 878931 }, { "id" : "US-NE","value" : 1893967 }, { "id" : "US-NV","value" : 1528508 }, { "id" : "US-NH","value" : 2149086 }, { "id" : "US-NJ","value" : 26227427 }, { "id" : "US-NM","value" : 365608 }, { "id" : "US-NY","value" : 31915197 }, { "id" : "US-NC","value" : 7138872 }, { "id" : "US-ND","value" : 924966 }, { "id" : "US-OH","value" : 20821622 }, { "id" : "US-OK","value" : 7944665 }, { "id" : "US-OR","value" : 3914452 }, { "id" : "US-PA","value" : 5145849 }, { "id" : "US-RI","value" : 2175187 }, { "id" : "US-SC","value" : 4504942 }, { "id" : "US-SD","value" : 397882 }, { "id" : "US-TN","value" : 5052058 }, { "id" : "US-TX","value" : 8008822 }, { "id" : "US-UT","value" : 1020633 }, { "id" : "US-VT","value" : 323185 }, { "id" : "US-VA","value" : 3809725 }, { "id" : "US-WA","value" : 1674500 }, { "id" : "US-WV","value" : 324546 }, { "id" : "US-WI","value" : 3783383 }, { "id" : "US-WY","value" : 246840 }],
-  [ { "id" : "US-AL","value" : 2072797 }, { "id" : "US-AK","value" : 342818 }, { "id" : "US-AZ","value" : 4907288 }, { "id" : "US-AR","value" : 1879836 }, { "id" : "US-CA","value" : 22012091 }, { "id" : "US-CO","value" : 5587278 }, { "id" : "US-CT","value" : 3639823 }, { "id" : "US-DE","value" : 1190480 }, { "id" : "US-FL","value" : 12830152 }, { "id" : "US-GA","value" : 14526276 }, { "id" : "US-HI","value" : 1182351 }, { "id" : "US-ID","value" : 747775 }, { "id" : "US-IL","value" : 12971256 }, { "id" : "US-IN","value" : 9441973 }, { "id" : "US-IA","value" : 2947322 }, { "id" : "US-KS","value" : 2542392 }, { "id" : "US-KY","value" : 4039600 }, { "id" : "US-LA","value" : 2123297 }, { "id" : "US-ME","value" : 943820 }, { "id" : "US-MD","value" : 12321155 }, { "id" : "US-MA","value" : 12125019 }, { "id" : "US-MI","value" : 11632927 }, { "id" : "US-MN","value" : 2324991 }, { "id" : "US-MS","value" : 3523749 }, { "id" : "US-MO","value" : 4217220 }, { "id" : "US-MT","value" : 934720 }, { "id" : "US-NE","value" : 1595431 }, { "id" : "US-NV","value" : 2188779 }, { "id" : "US-NH","value" : 1831207 }, { "id" : "US-NJ","value" : 20515392 }, { "id" : "US-NM","value" : 316867 }, { "id" : "US-NY","value" : 19606508 }, { "id" : "US-NC","value" : 5494825 }, { "id" : "US-ND","value" : 1115663 }, { "id" : "US-OH","value" : 13867820 }, { "id" : "US-OK","value" : 7595131 }, { "id" : "US-OR","value" : 4349857 }, { "id" : "US-PA","value" : 4866604 }, { "id" : "US-RI","value" : 2350654 }, { "id" : "US-SC","value" : 3989729 }, { "id" : "US-SD","value" : 553238 }, { "id" : "US-TN","value" : 2771329 }, { "id" : "US-TX","value" : 9322263 }, { "id" : "US-UT","value" : 1209094 }, { "id" : "US-VT","value" : 278258 }, { "id" : "US-VA","value" : 4216566 }, { "id" : "US-WA","value" : 1441480 }, { "id" : "US-WV","value" : 197755 }, { "id" : "US-WI","value" : 2005445 }, { "id" : "US-WY","value" : 125528 }],
-  [ { "id" : "US-AL","value" : 2690718 }, { "id" : "US-AK","value" : 400365 }, { "id" : "US-AZ","value" : 6233811 }, { "id" : "US-AR","value" : 2562383 }, { "id" : "US-CA","value" : 24132965 }, { "id" : "US-CO","value" : 4579693 }, { "id" : "US-CT","value" : 3889027 }, { "id" : "US-DE","value" : 902592 }, { "id" : "US-FL","value" : 17236451 }, { "id" : "US-GA","value" : 8804132 }, { "id" : "US-HI","value" : 1582274 }, { "id" : "US-ID","value" : 766328 }, { "id" : "US-IL","value" : 13868561 }, { "id" : "US-IN","value" : 7034865 }, { "id" : "US-IA","value" : 3003402 }, { "id" : "US-KS","value" : 3462510 }, { "id" : "US-KY","value" : 3406503 }, { "id" : "US-LA","value" : 2167973 }, { "id" : "US-ME","value" : 664682 }, { "id" : "US-MD","value" : 13190557 }, { "id" : "US-MA","value" : 8395611 }, { "id" : "US-MI","value" : 10112647 }, { "id" : "US-MN","value" : 2754379 }, { "id" : "US-MS","value" : 4687106 }, { "id" : "US-MO","value" : 4628030 }, { "id" : "US-MT","value" : 998957 }, { "id" : "US-NE","value" : 816166 }, { "id" : "US-NV","value" : 2012052 }, { "id" : "US-NH","value" : 1079462 }, { "id" : "US-NJ","value" : 18368948 }, { "id" : "US-NM","value" : 334117 }, { "id" : "US-NY","value" : 18575727 }, { "id" : "US-NC","value" : 3312906 }, { "id" : "US-ND","value" : 1121446 }, { "id" : "US-OH","value" : 10991945 }, { "id" : "US-OK","value" : 4085308 }, { "id" : "US-OR","value" : 6169579 }, { "id" : "US-PA","value" : 5303396 }, { "id" : "US-RI","value" : 2314849 }, { "id" : "US-SC","value" : 3277199 }, { "id" : "US-SD","value" : 775074 }, { "id" : "US-TN","value" : 3009069 }, { "id" : "US-TX","value" : 13515750 }, { "id" : "US-UT","value" : 1305651 }, { "id" : "US-VT","value" : 401572 }, { "id" : "US-VA","value" : 3594793 }, { "id" : "US-WA","value" : 1497373 }, { "id" : "US-WV","value" : 131835 }, { "id" : "US-WI","value" : 2937620 }, { "id" : "US-WY","value" : 141650 }],
-  [ { "id" : "US-AL","value" : 3071211 }, { "id" : "US-AK","value" : 469449 }, { "id" : "US-AZ","value" : 4287734 }, { "id" : "US-AR","value" : 2081551 }, { "id" : "US-CA","value" : 28368468 }, { "id" : "US-CO","value" : 4441262 }, { "id" : "US-CT","value" : 2648868 }, { "id" : "US-DE","value" : 885140 }, { "id" : "US-FL","value" : 12113573 }, { "id" : "US-GA","value" : 5707896 }, { "id" : "US-HI","value" : 1080673 }, { "id" : "US-ID","value" : 560558 }, { "id" : "US-IL","value" : 14694650 }, { "id" : "US-IN","value" : 9435890 }, { "id" : "US-IA","value" : 3522302 }, { "id" : "US-KS","value" : 2058208 }, { "id" : "US-KY","value" : 3756356 }, { "id" : "US-LA","value" : 2290308 }, { "id" : "US-ME","value" : 694364 }, { "id" : "US-MD","value" : 8473571 }, { "id" : "US-MA","value" : 8664644 }, { "id" : "US-MI","value" : 12971617 }, { "id" : "US-MN","value" : 1982844 }, { "id" : "US-MS","value" : 5326553 }, { "id" : "US-MO","value" : 5078037 }, { "id" : "US-MT","value" : 713286 }, { "id" : "US-NE","value" : 1175989 }, { "id" : "US-NV","value" : 2433359 }, { "id" : "US-NH","value" : 971666 }, { "id" : "US-NJ","value" : 19492530 }, { "id" : "US-NM","value" : 425958 }, { "id" : "US-NY","value" : 11022931 }, { "id" : "US-NC","value" : 2312487 }, { "id" : "US-ND","value" : 791293 }, { "id" : "US-OH","value" : 16125324 }, { "id" : "US-OK","value" : 3087849 }, { "id" : "US-OR","value" : 8392710 }, { "id" : "US-PA","value" : 7604713 }, { "id" : "US-RI","value" : 3436527 }, { "id" : "US-SC","value" : 3488472 }, { "id" : "US-SD","value" : 667112 }, { "id" : "US-TN","value" : 3375065 }, { "id" : "US-TX","value" : 7414930 }, { "id" : "US-UT","value" : 1195162 }, { "id" : "US-VT","value" : 289220 }, { "id" : "US-VA","value" : 3910851 }, { "id" : "US-WA","value" : 754171 }, { "id" : "US-WV","value" : 90910 }, { "id" : "US-WI","value" : 1591549 }, { "id" : "US-WY","value" : 116107 }],
-  [ { "id" : "US-AL","value" : 3657840 }, { "id" : "US-AK","value" : 570146 }, { "id" : "US-AZ","value" : 4267337 }, { "id" : "US-AR","value" : 1790944 }, { "id" : "US-CA","value" : 37592795 }, { "id" : "US-CO","value" : 4642387 }, { "id" : "US-CT","value" : 2638514 }, { "id" : "US-DE","value" : 836644 }, { "id" : "US-FL","value" : 8419480 }, { "id" : "US-GA","value" : 6591314 }, { "id" : "US-HI","value" : 1140010 }, { "id" : "US-ID","value" : 306842 }, { "id" : "US-IL","value" : 13045207 }, { "id" : "US-IN","value" : 14011114 }, { "id" : "US-IA","value" : 2436114 }, { "id" : "US-KS","value" : 1393975 }, { "id" : "US-KY","value" : 2159564 }, { "id" : "US-LA","value" : 2503438 }, { "id" : "US-ME","value" : 817807 }, { "id" : "US-MD","value" : 6475193 }, { "id" : "US-MA","value" : 12945747 }, { "id" : "US-MI","value" : 10736299 }, { "id" : "US-MN","value" : 1217005 }, { "id" : "US-MS","value" : 3087764 }, { "id" : "US-MO","value" : 6027032 }, { "id" : "US-MT","value" : 618539 }, { "id" : "US-NE","value" : 622533 }, { "id" : "US-NV","value" : 2248754 }, { "id" : "US-NH","value" : 613596 }, { "id" : "US-NJ","value" : 25164562 }, { "id" : "US-NM","value" : 307769 }, { "id" : "US-NY","value" : 11120682 }, { "id" : "US-NC","value" : 3245829 }, { "id" : "US-ND","value" : 1153164 }, { "id" : "US-OH","value" : 15707831 }, { "id" : "US-OK","value" : 2753063 }, { "id" : "US-OR","value" : 5508851 }, { "id" : "US-PA","value" : 7575534 }, { "id" : "US-RI","value" : 4171273 }, { "id" : "US-SC","value" : 4487243 }, { "id" : "US-SD","value" : 465152 }, { "id" : "US-TN","value" : 3849016 }, { "id" : "US-TX","value" : 10725827 }, { "id" : "US-UT","value" : 1338106 }, { "id" : "US-VT","value" : 323739 }, { "id" : "US-VA","value" : 5289203 }, { "id" : "US-WA","value" : 772171 }, { "id" : "US-WV","value" : 92354 }, { "id" : "US-WI","value" : 1654978 }, { "id" : "US-WY","value" : 112591 }],
-  [ { "id" : "US-AL","value" : 1987379 }, { "id" : "US-AK","value" : 389678 }, { "id" : "US-AZ","value" : 5253922 }, { "id" : "US-AR","value" : 1490930 }, { "id" : "US-CA","value" : 45222577 }, { "id" : "US-CO","value" : 4219675 }, { "id" : "US-CT","value" : 2114266 }, { "id" : "US-DE","value" : 880481 }, { "id" : "US-FL","value" : 8891013 }, { "id" : "US-GA","value" : 8750456 }, { "id" : "US-HI","value" : 646860 }, { "id" : "US-ID","value" : 365151 }, { "id" : "US-IL","value" : 7014213 }, { "id" : "US-IN","value" : 13326791 }, { "id" : "US-IA","value" : 2105206 }, { "id" : "US-KS","value" : 1765701 }, { "id" : "US-KY","value" : 1137684 }, { "id" : "US-LA","value" : 2727948 }, { "id" : "US-ME","value" : 1115414 }, { "id" : "US-MD","value" : 5846550 }, { "id" : "US-MA","value" : 15208412 }, { "id" : "US-MI","value" : 8472306 }, { "id" : "US-MN","value" : 709494 }, { "id" : "US-MS","value" : 2038498 }, { "id" : "US-MO","value" : 8529061 }, { "id" : "US-MT","value" : 834441 }, { "id" : "US-NE","value" : 640896 }, { "id" : "US-NV","value" : 1198030 }, { "id" : "US-NH","value" : 640929 }, { "id" : "US-NJ","value" : 14407215 }, { "id" : "US-NM","value" : 308043 }, { "id" : "US-NY","value" : 16421694 }, { "id" : "US-NC","value" : 3198701 }, { "id" : "US-ND","value" : 989752 }, { "id" : "US-OH","value" : 9920783 }, { "id" : "US-OK","value" : 2542618 }, { "id" : "US-OR","value" : 6639310 }, { "id" : "US-PA","value" : 10424254 }, { "id" : "US-RI","value" : 2719217 }, { "id" : "US-SC","value" : 5588206 }, { "id" : "US-SD","value" : 526281 }, { "id" : "US-TN","value" : 3863513 }, { "id" : "US-TX","value" : 14503844 }, { "id" : "US-UT","value" : 1894172 }, { "id" : "US-VT","value" : 402312 }, { "id" : "US-VA","value" : 7782189 }, { "id" : "US-WA","value" : 587949 }, { "id" : "US-WV","value" : 97340 }, { "id" : "US-WI","value" : 1087474 }, { "id" : "US-WY","value" : 109358 }],
-  [ { "id" : "US-AL","value" : 1540161 }, { "id" : "US-AK","value" : 475165 }, { "id" : "US-AZ","value" : 4822541 }, { "id" : "US-AR","value" : 1936565 }, { "id" : "US-CA","value" : 26524482 }, { "id" : "US-CO","value" : 2647086 }, { "id" : "US-CT","value" : 2307580 }, { "id" : "US-DE","value" : 906811 }, { "id" : "US-FL","value" : 5466980 }, { "id" : "US-GA","value" : 8697107 }, { "id" : "US-HI","value" : 960734 }, { "id" : "US-ID","value" : 382859 }, { "id" : "US-IL","value" : 7642679 }, { "id" : "US-IN","value" : 11417700 }, { "id" : "US-IA","value" : 1259756 }, { "id" : "US-KS","value" : 963898 }, { "id" : "US-KY","value" : 1224043 }, { "id" : "US-LA","value" : 2562741 }, { "id" : "US-ME","value" : 806625 }, { "id" : "US-MD","value" : 6968577 }, { "id" : "US-MA","value" : 10568491 }, { "id" : "US-MI","value" : 6325456 }, { "id" : "US-MN","value" : 498604 }, { "id" : "US-MS","value" : 2668017 }, { "id" : "US-MO","value" : 11537444 }, { "id" : "US-MT","value" : 857871 }, { "id" : "US-NE","value" : 607556 }, { "id" : "US-NV","value" : 1796850 }, { "id" : "US-NH","value" : 382612 }, { "id" : "US-NJ","value" : 12418128 }, { "id" : "US-NM","value" : 308749 }, { "id" : "US-NY","value" : 14237035 }, { "id" : "US-NC","value" : 2885458 }, { "id" : "US-ND","value" : 897390 }, { "id" : "US-OH","value" : 9934347 }, { "id" : "US-OK","value" : 2789778 }, { "id" : "US-OR","value" : 7480118 }, { "id" : "US-PA","value" : 8878414 }, { "id" : "US-RI","value" : 2230612 }, { "id" : "US-SC","value" : 4644568 }, { "id" : "US-SD","value" : 462978 }, { "id" : "US-TN","value" : 3291462 }, { "id" : "US-TX","value" : 12750625 }, { "id" : "US-UT","value" : 2136892 }, { "id" : "US-VT","value" : 302969 }, { "id" : "US-VA","value" : 11448566 }, { "id" : "US-WA","value" : 455711 }, { "id" : "US-WV","value" : 54298 }, { "id" : "US-WI","value" : 1076692 }, { "id" : "US-WY","value" : 75515 }],
-  [ { "id" : "US-AL","value" : 1128619 }, { "id" : "US-AK","value" : 342886 }, { "id" : "US-AZ","value" : 5175726 }, { "id" : "US-AR","value" : 1631530 }, { "id" : "US-CA","value" : 16858627 }, { "id" : "US-CO","value" : 2646035 }, { "id" : "US-CT","value" : 2559500 }, { "id" : "US-DE","value" : 740926 }, { "id" : "US-FL","value" : 7119463 }, { "id" : "US-GA","value" : 11822980 }, { "id" : "US-HI","value" : 770694 }, { "id" : "US-ID","value" : 433800 }, { "id" : "US-IL","value" : 10082654 }, { "id" : "US-IN","value" : 7426184 }, { "id" : "US-IA","value" : 684655 }, { "id" : "US-KS","value" : 1298161 }, { "id" : "US-KY","value" : 976078 }, { "id" : "US-LA","value" : 2609552 }, { "id" : "US-ME","value" : 722448 }, { "id" : "US-MD","value" : 5918933 }, { "id" : "US-MA","value" : 7017772 }, { "id" : "US-MI","value" : 5171969 }, { "id" : "US-MN","value" : 316217 }, { "id" : "US-MS","value" : 3287849 }, { "id" : "US-MO","value" : 13585486 }, { "id" : "US-MT","value" : 965544 }, { "id" : "US-NE","value" : 313023 }, { "id" : "US-NV","value" : 1729847 }, { "id" : "US-NH","value" : 428820 }, { "id" : "US-NJ","value" : 11115013 }, { "id" : "US-NM","value" : 439401 }, { "id" : "US-NY","value" : 16011912 }, { "id" : "US-NC","value" : 4188015 }, { "id" : "US-ND","value" : 630521 }, { "id" : "US-OH","value" : 7466315 }, { "id" : "US-OK","value" : 3117803 }, { "id" : "US-OR","value" : 10006376 }, { "id" : "US-PA","value" : 7205694 }, { "id" : "US-RI","value" : 1335064 }, { "id" : "US-SC","value" : 3411044 }, { "id" : "US-SD","value" : 397509 }, { "id" : "US-TN","value" : 2599327 }, { "id" : "US-TX","value" : 12118225 }, { "id" : "US-UT","value" : 2516615 }, { "id" : "US-VT","value" : 408808 }, { "id" : "US-VA","value" : 13639696 }, { "id" : "US-WA","value" : 564222 }, { "id" : "US-WV","value" : 47503 }, { "id" : "US-WI","value" : 1590304 }, { "id" : "US-WY","value" : 96545 }],
-  [ { "id" : "US-AL","value" : 716879 }, { "id" : "US-AK","value" : 331408 }, { "id" : "US-AZ","value" : 4827716 }, { "id" : "US-AR","value" : 1945251 }, { "id" : "US-CA","value" : 22849527 }, { "id" : "US-CO","value" : 1564025 }, { "id" : "US-CT","value" : 2310026 }, { "id" : "US-DE","value" : 803359 }, { "id" : "US-FL","value" : 5703429 }, { "id" : "US-GA","value" : 6196704 }, { "id" : "US-HI","value" : 975752 }, { "id" : "US-ID","value" : 305283 }, { "id" : "US-IL","value" : 10679096 }, { "id" : "US-IN","value" : 6724740 }, { "id" : "US-IA","value" : 965970 }, { "id" : "US-KS","value" : 855751 }, { "id" : "US-KY","value" : 1010707 }, { "id" : "US-LA","value" : 3101245 }, { "id" : "US-ME","value" : 562986 }, { "id" : "US-MD","value" : 5101074 }, { "id" : "US-MA","value" : 7906551 }, { "id" : "US-MI","value" : 4070061 }, { "id" : "US-MN","value" : 388364 }, { "id" : "US-MS","value" : 3658985 }, { "id" : "US-MO","value" : 9960027 }, { "id" : "US-MT","value" : 859683 }, { "id" : "US-NE","value" : 181804 }, { "id" : "US-NV","value" : 2329136 }, { "id" : "US-NH","value" : 323816 }, { "id" : "US-NJ","value" : 7467477 }, { "id" : "US-NM","value" : 286093 }, { "id" : "US-NY","value" : 11938317 }, { "id" : "US-NC","value" : 5268294 }, { "id" : "US-ND","value" : 711141 }, { "id" : "US-OH","value" : 6758525 }, { "id" : "US-OK","value" : 4293928 }, { "id" : "US-OR","value" : 10290602 }, { "id" : "US-PA","value" : 5275671 }, { "id" : "US-RI","value" : 1681776 }, { "id" : "US-SC","value" : 2600933 }, { "id" : "US-SD","value" : 210279 }, { "id" : "US-TN","value" : 2644692 }, { "id" : "US-TX","value" : 11700416 }, { "id" : "US-UT","value" : 2215293 }, { "id" : "US-VT","value" : 324219 }, { "id" : "US-VA","value" : 10325238 }, { "id" : "US-WA","value" : 611475 }, { "id" : "US-WV","value" : 66843 }, { "id" : "US-WI","value" : 1637529 }, { "id" : "US-WY","value" : 108636 }],
-  [ { "id" : "US-AL","value" : 374543 }, { "id" : "US-AK","value" : 213005 }, { "id" : "US-AZ","value" : 3214410 }, { "id" : "US-AR","value" : 2381933 }, { "id" : "US-CA","value" : 17745139 }, { "id" : "US-CO","value" : 1136187 }, { "id" : "US-CT","value" : 2996214 }, { "id" : "US-DE","value" : 1000039 }, { "id" : "US-FL","value" : 3877432 }, { "id" : "US-GA","value" : 7570544 }, { "id" : "US-HI","value" : 692163 }, { "id" : "US-ID","value" : 393697 }, { "id" : "US-IL","value" : 13441242 }, { "id" : "US-IN","value" : 6273264 }, { "id" : "US-IA","value" : 1157681 }, { "id" : "US-KS","value" : 665222 }, { "id" : "US-KY","value" : 1212820 }, { "id" : "US-LA","value" : 3011431 }, { "id" : "US-ME","value" : 294139 }, { "id" : "US-MD","value" : 3062166 }, { "id" : "US-MA","value" : 6668686 }, { "id" : "US-MI","value" : 2290065 }, { "id" : "US-MN","value" : 474056 }, { "id" : "US-MS","value" : 2539728 }, { "id" : "US-MO","value" : 14426871 }, { "id" : "US-MT","value" : 1278161 }, { "id" : "US-NE","value" : 224598 }, { "id" : "US-NV","value" : 1654590 }, { "id" : "US-NH","value" : 235141 }, { "id" : "US-NJ","value" : 7852973 }, { "id" : "US-NM","value" : 366066 }, { "id" : "US-NY","value" : 5982874 }, { "id" : "US-NC","value" : 7102573 }, { "id" : "US-ND","value" : 584076 }, { "id" : "US-OH","value" : 7605875 }, { "id" : "US-OK","value" : 4041398 }, { "id" : "US-OR","value" : 11319712 }, { "id" : "US-PA","value" : 7682988 }, { "id" : "US-RI","value" : 1232621 }, { "id" : "US-SC","value" : 3662970 }, { "id" : "US-SD","value" : 140329 }, { "id" : "US-TN","value" : 2503770 }, { "id" : "US-TX","value" : 6622037 }, { "id" : "US-UT","value" : 2102816 }, { "id" : "US-VT","value" : 302242 }, { "id" : "US-VA","value" : 13250882 }, { "id" : "US-WA","value" : 762690 }, { "id" : "US-WV","value" : 83210 }, { "id" : "US-WI","value" : 2442382 }, { "id" : "US-WY","value" : 159188 }],
-  [ { "id" : "US-AL","value" : 537161 }, { "id" : "US-AK","value" : 194962 }, { "id" : "US-AZ","value" : 4221063 }, { "id" : "US-AR","value" : 1951361 }, { "id" : "US-CA","value" : 25284350 }, { "id" : "US-CO","value" : 729077 }, { "id" : "US-CT","value" : 3614036 }, { "id" : "US-DE","value" : 1181079 }, { "id" : "US-FL","value" : 2598306 }, { "id" : "US-GA","value" : 5149270 }, { "id" : "US-HI","value" : 582132 }, { "id" : "US-ID","value" : 439489 }, { "id" : "US-IL","value" : 7093266 }, { "id" : "US-IN","value" : 8030770 }, { "id" : "US-IA","value" : 737182 }, { "id" : "US-KS","value" : 385199 }, { "id" : "US-KY","value" : 774196 }, { "id" : "US-LA","value" : 2177597 }, { "id" : "US-ME","value" : 296673 }, { "id" : "US-MD","value" : 2225514 }, { "id" : "US-MA","value" : 9425701 }, { "id" : "US-MI","value" : 1269578 }, { "id" : "US-MN","value" : 599498 }, { "id" : "US-MS","value" : 3304023 }, { "id" : "US-MO","value" : 7897942 }, { "id" : "US-MT","value" : 1349620 }, { "id" : "US-NE","value" : 283630 }, { "id" : "US-NV","value" : 869411 }, { "id" : "US-NH","value" : 141864 }, { "id" : "US-NJ","value" : 8183639 }, { "id" : "US-NM","value" : 209894 }, { "id" : "US-NY","value" : 8416237 }, { "id" : "US-NC","value" : 10378000 }, { "id" : "US-ND","value" : 761743 }, { "id" : "US-OH","value" : 9136393 }, { "id" : "US-OK","value" : 2729991 }, { "id" : "US-OR","value" : 9074616 }, { "id" : "US-PA","value" : 10109491 }, { "id" : "US-RI","value" : 1150366 }, { "id" : "US-SC","value" : 5008026 }, { "id" : "US-SD","value" : 180314 }, { "id" : "US-TN","value" : 2451267 }, { "id" : "US-TX","value" : 9479447 }, { "id" : "US-UT","value" : 2862141 }, { "id" : "US-VT","value" : 332620 }, { "id" : "US-VA","value" : 8621738 }, { "id" : "US-WA","value" : 675098 }, { "id" : "US-WV","value" : 61873 }, { "id" : "US-WI","value" : 2459550 }, { "id" : "US-WY","value" : 178346 }],
-  [ { "id" : "US-AL","value" : 794526 }, { "id" : "US-AK","value" : 202158 }, { "id" : "US-AZ","value" : 4220097 }, { "id" : "US-AR","value" : 1016601 }, { "id" : "US-CA","value" : 16354948 }, { "id" : "US-CO","value" : 690237 }, { "id" : "US-CT","value" : 3019331 }, { "id" : "US-DE","value" : 1768307 }, { "id" : "US-FL","value" : 2522793 }, { "id" : "US-GA","value" : 3493376 }, { "id" : "US-HI","value" : 326329 }, { "id" : "US-ID","value" : 652360 }, { "id" : "US-IL","value" : 3708247 }, { "id" : "US-IN","value" : 4167621 }, { "id" : "US-IA","value" : 884844 }, { "id" : "US-KS","value" : 366908 }, { "id" : "US-KY","value" : 972905 }, { "id" : "US-LA","value" : 2341012 }, { "id" : "US-ME","value" : 216125 }, { "id" : "US-MD","value" : 2770090 }, { "id" : "US-MA","value" : 12465490 }, { "id" : "US-MI","value" : 1626106 }, { "id" : "US-MN","value" : 575842 }, { "id" : "US-MS","value" : 3270352 }, { "id" : "US-MO","value" : 6707243 }, { "id" : "US-MT","value" : 1638289 }, { "id" : "US-NE","value" : 254298 }, { "id" : "US-NV","value" : 834967 }, { "id" : "US-NH","value" : 160723 }, { "id" : "US-NJ","value" : 11759604 }, { "id" : "US-NM","value" : 187844 }, { "id" : "US-NY","value" : 4917946 }, { "id" : "US-NC","value" : 12190083 }, { "id" : "US-ND","value" : 514331 }, { "id" : "US-OH","value" : 5181539 }, { "id" : "US-OK","value" : 2138521 }, { "id" : "US-OR","value" : 10407299 }, { "id" : "US-PA","value" : 13081801 }, { "id" : "US-RI","value" : 704491 }, { "id" : "US-SC","value" : 6123128 }, { "id" : "US-SD","value" : 184482 }, { "id" : "US-TN","value" : 3001284 }, { "id" : "US-TX","value" : 11604842 }, { "id" : "US-UT","value" : 2799711 }, { "id" : "US-VT","value" : 426886 }, { "id" : "US-VA","value" : 11729003 }, { "id" : "US-WA","value" : 458756 }, { "id" : "US-WV","value" : 46478 }, { "id" : "US-WI","value" : 3033425 }, { "id" : "US-WY","value" : 243862 }],
-  [ { "id" : "US-AL","value" : 670202 }, { "id" : "US-AK","value" : 287951 }, { "id" : "US-AZ","value" : 4725549 }, { "id" : "US-AR","value" : 1158448 }, { "id" : "US-CA","value" : 21767058 }, { "id" : "US-CO","value" : 580353 }, { "id" : "US-CT","value" : 3528384 }, { "id" : "US-DE","value" : 2387334 }, { "id" : "US-FL","value" : 3517890 }, { "id" : "US-GA","value" : 5175796 }, { "id" : "US-HI","value" : 312041 }, { "id" : "US-ID","value" : 774505 }, { "id" : "US-IL","value" : 4814856 }, { "id" : "US-IN","value" : 4717854 }, { "id" : "US-IA","value" : 905202 }, { "id" : "US-KS","value" : 467308 }, { "id" : "US-KY","value" : 1263336 }, { "id" : "US-LA","value" : 1888012 }, { "id" : "US-ME","value" : 151071 }, { "id" : "US-MD","value" : 3799610 }, { "id" : "US-MA","value" : 15946199 }, { "id" : "US-MI","value" : 1767370 }, { "id" : "US-MN","value" : 546810 }, { "id" : "US-MS","value" : 4588915 }, { "id" : "US-MO","value" : 6793595 }, { "id" : "US-MT","value" : 1099693 }, { "id" : "US-NE","value" : 252386 }, { "id" : "US-NV","value" : 763939 }, { "id" : "US-NH","value" : 138861 }, { "id" : "US-NJ","value" : 11234166 }, { "id" : "US-NM","value" : 147546 }, { "id" : "US-NY","value" : 7351241 }, { "id" : "US-NC","value" : 14795792 }, { "id" : "US-ND","value" : 307639 }, { "id" : "US-OH","value" : 5011381 }, { "id" : "US-OK","value" : 2571180 }, { "id" : "US-OR","value" : 14477844 }, { "id" : "US-PA","value" : 19173682 }, { "id" : "US-RI","value" : 517258 }, { "id" : "US-SC","value" : 4872591 }, { "id" : "US-SD","value" : 209798 }, { "id" : "US-TN","value" : 2098665 }, { "id" : "US-TX","value" : 13225059 }, { "id" : "US-UT","value" : 1654083 }, { "id" : "US-VT","value" : 262954 }, { "id" : "US-VA","value" : 16494941 }, { "id" : "US-WA","value" : 272953 }, { "id" : "US-WV","value" : 49784 }, { "id" : "US-WI","value" : 2553082 }, { "id" : "US-WY","value" : 122816 }],
-  [ { "id" : "US-AL","value" : 533805 }, { "id" : "US-AK","value" : 289171 }, { "id" : "US-AZ","value" : 3726963 }, { "id" : "US-AR","value" : 646060 }, { "id" : "US-CA","value" : 17259162 }, { "id" : "US-CO","value" : 793261 }, { "id" : "US-CT","value" : 3241345 }, { "id" : "US-DE","value" : 1957981 }, { "id" : "US-FL","value" : 2896217 }, { "id" : "US-GA","value" : 6184877 }, { "id" : "US-HI","value" : 458867 }, { "id" : "US-ID","value" : 903955 }, { "id" : "US-IL","value" : 5355027 }, { "id" : "US-IN","value" : 6303683 }, { "id" : "US-IA","value" : 835444 }, { "id" : "US-KS","value" : 523050 }, { "id" : "US-KY","value" : 1513308 }, { "id" : "US-LA","value" : 2075136 }, { "id" : "US-ME","value" : 86140 }, { "id" : "US-MD","value" : 4553017 }, { "id" : "US-MA","value" : 21944902 }, { "id" : "US-MI","value" : 1990118 }, { "id" : "US-MN","value" : 505155 }, { "id" : "US-MS","value" : 4672507 }, { "id" : "US-MO","value" : 5638367 }, { "id" : "US-MT","value" : 1622180 }, { "id" : "US-NE","value" : 221248 }, { "id" : "US-NV","value" : 901879 }, { "id" : "US-NH","value" : 145923 }, { "id" : "US-NJ","value" : 15431603 }, { "id" : "US-NM","value" : 168364 }, { "id" : "US-NY","value" : 5423006 }, { "id" : "US-NC","value" : 17130554 }, { "id" : "US-ND","value" : 166005 }, { "id" : "US-OH","value" : 3041429 }, { "id" : "US-OK","value" : 2502705 }, { "id" : "US-OR","value" : 17039365 }, { "id" : "US-PA","value" : 11501645 }, { "id" : "US-RI","value" : 540603 }, { "id" : "US-SC","value" : 5093777 }, { "id" : "US-SD","value" : 177248 }, { "id" : "US-TN","value" : 2667188 }, { "id" : "US-TX","value" : 9636130 }, { "id" : "US-UT","value" : 1281283 }, { "id" : "US-VT","value" : 216928 }, { "id" : "US-VA","value" : 23838286 }, { "id" : "US-WA","value" : 299628 }, { "id" : "US-WV","value" : 30004 }, { "id" : "US-WI","value" : 2348289 }, { "id" : "US-WY","value" : 152737 }],
-  [ { "id" : "US-AL","value" : 449406 }, { "id" : "US-AK","value" : 275560 }, { "id" : "US-AZ","value" : 3210025 }, { "id" : "US-AR","value" : 530079 }, { "id" : "US-CA","value" : 10095547 }, { "id" : "US-CO","value" : 700966 }, { "id" : "US-CT","value" : 4826366 }, { "id" : "US-DE","value" : 2441443 }, { "id" : "US-FL","value" : 2023466 }, { "id" : "US-GA","value" : 8907901 }, { "id" : "US-HI","value" : 677125 }, { "id" : "US-ID","value" : 1264153 }, { "id" : "US-IL","value" : 6140957 }, { "id" : "US-IN","value" : 5122033 }, { "id" : "US-IA","value" : 733762 }, { "id" : "US-KS","value" : 515688 }, { "id" : "US-KY","value" : 1016988 }, { "id" : "US-LA","value" : 2679200 }, { "id" : "US-ME","value" : 80508 }, { "id" : "US-MD","value" : 3850606 }, { "id" : "US-MA","value" : 20234119 }, { "id" : "US-MI","value" : 1497620 }, { "id" : "US-MN","value" : 257751 }, { "id" : "US-MS","value" : 5477521 }, { "id" : "US-MO","value" : 4720407 }, { "id" : "US-MT","value" : 1942718 }, { "id" : "US-NE","value" : 236607 }, { "id" : "US-NV","value" : 1077254 }, { "id" : "US-NH","value" : 212964 }, { "id" : "US-NJ","value" : 13619532 }, { "id" : "US-NM","value" : 247743 }, { "id" : "US-NY","value" : 6173471 }, { "id" : "US-NC","value" : 13601096 }, { "id" : "US-ND","value" : 130269 }, { "id" : "US-OH","value" : 3786014 }, { "id" : "US-OK","value" : 1348696 }, { "id" : "US-OR","value" : 16622304 }, { "id" : "US-PA","value" : 10921641 }, { "id" : "US-RI","value" : 742003 }, { "id" : "US-SC","value" : 2954405 }, { "id" : "US-SD","value" : 207925 }, { "id" : "US-TN","value" : 2366603 }, { "id" : "US-TX","value" : 6539557 }, { "id" : "US-UT","value" : 1779930 }, { "id" : "US-VT","value" : 299766 }, { "id" : "US-VA","value" : 18994431 }, { "id" : "US-WA","value" : 306605 }, { "id" : "US-WV","value" : 42264 }, { "id" : "US-WI","value" : 2288260 }, { "id" : "US-WY","value" : 100137 }],
-  [ { "id" : "US-AL","value" : 567671 }, { "id" : "US-AK","value" : 328682 }, { "id" : "US-AZ","value" : 4012414 }, { "id" : "US-AR","value" : 723685 }, { "id" : "US-CA","value" : 8905290 }, { "id" : "US-CO","value" : 642765 }, { "id" : "US-CT","value" : 6872885 }, { "id" : "US-DE","value" : 1983200 }, { "id" : "US-FL","value" : 1118403 }, { "id" : "US-GA","value" : 7451269 }, { "id" : "US-HI","value" : 742591 }, { "id" : "US-ID","value" : 919469 }, { "id" : "US-IL","value" : 8240122 }, { "id" : "US-IN","value" : 3638799 }, { "id" : "US-IA","value" : 426155 }, { "id" : "US-KS","value" : 526946 }, { "id" : "US-KY","value" : 954000 }, { "id" : "US-LA","value" : 1802382 }, { "id" : "US-ME","value" : 75136 }, { "id" : "US-MD","value" : 4583318 }, { "id" : "US-MA","value" : 26614032 }, { "id" : "US-MI","value" : 2113326 }, { "id" : "US-MN","value" : 302545 }, { "id" : "US-MS","value" : 5731760 }, { "id" : "US-MO","value" : 6198017 }, { "id" : "US-MT","value" : 2679536 }, { "id" : "US-NE","value" : 172966 }, { "id" : "US-NV","value" : 1074722 }, { "id" : "US-NH","value" : 196053 }, { "id" : "US-NJ","value" : 8965683 }, { "id" : "US-NM","value" : 165681 }, { "id" : "US-NY","value" : 6488515 }, { "id" : "US-NC","value" : 7265882 }, { "id" : "US-ND","value" : 190402 }, { "id" : "US-OH","value" : 3947007 }, { "id" : "US-OK","value" : 1669201 }, { "id" : "US-OR","value" : 17124325 }, { "id" : "US-PA","value" : 12640982 }, { "id" : "US-RI","value" : 754839 }, { "id" : "US-SC","value" : 4098526 }, { "id" : "US-SD","value" : 168511 }, { "id" : "US-TN","value" : 1664510 }, { "id" : "US-TX","value" : 3306876 }, { "id" : "US-UT","value" : 1110627 }, { "id" : "US-VT","value" : 162978 }, { "id" : "US-VA","value" : 17398967 }, { "id" : "US-WA","value" : 306183 }, { "id" : "US-WV","value" : 24466 }, { "id" : "US-WI","value" : 2257896 }, { "id" : "US-WY","value" : 117242 }],
-  [ { "id" : "US-AL","value" : 727774 }, { "id" : "US-AK","value" : 214619 }, { "id" : "US-AZ","value" : 5928746 }, { "id" : "US-AR","value" : 486201 }, { "id" : "US-CA","value" : 7568287 }, { "id" : "US-CO","value" : 903831 }, { "id" : "US-CT","value" : 4350897 }, { "id" : "US-DE","value" : 2945898 }, { "id" : "US-FL","value" : 587983 }, { "id" : "US-GA","value" : 4594698 }, { "id" : "US-HI","value" : 904785 }, { "id" : "US-ID","value" : 498374 }, { "id" : "US-IL","value" : 11264440 }, { "id" : "US-IN","value" : 3187247 }, { "id" : "US-IA","value" : 520072 }, { "id" : "US-KS","value" : 436421 }, { "id" : "US-KY","value" : 1113807 }, { "id" : "US-LA","value" : 1466022 }, { "id" : "US-ME","value" : 55621 }, { "id" : "US-MD","value" : 5899238 }, { "id" : "US-MA","value" : 30556235 }, { "id" : "US-MI","value" : 2678069 }, { "id" : "US-MN","value" : 237268 }, { "id" : "US-MS","value" : 7429445 }, { "id" : "US-MO","value" : 5294524 }, { "id" : "US-MT","value" : 3379174 }, { "id" : "US-NE","value" : 191431 }, { "id" : "US-NV","value" : 1526853 }, { "id" : "US-NH","value" : 120402 }, { "id" : "US-NJ","value" : 12064429 }, { "id" : "US-NM","value" : 150445 }, { "id" : "US-NY","value" : 3949674 }, { "id" : "US-NC","value" : 3912065 }, { "id" : "US-ND","value" : 189792 }, { "id" : "US-OH","value" : 2905830 }, { "id" : "US-OK","value" : 2390052 }, { "id" : "US-OR","value" : 10650584 }, { "id" : "US-PA","value" : 18748820 }, { "id" : "US-RI","value" : 815710 }, { "id" : "US-SC","value" : 6079142 }, { "id" : "US-SD","value" : 98142 }, { "id" : "US-TN","value" : 2324875 }, { "id" : "US-TX","value" : 1778450 }, { "id" : "US-UT","value" : 1342707 }, { "id" : "US-VT","value" : 154575 }, { "id" : "US-VA","value" : 18759497 }, { "id" : "US-WA","value" : 403425 }, { "id" : "US-WV","value" : 15846 }, { "id" : "US-WI","value" : 2929103 }, { "id" : "US-WY","value" : 126009 }],
-  [ { "id" : "US-AL","value" : 573180 }, { "id" : "US-AK","value" : 320566 }, { "id" : "US-AZ","value" : 5073504 }, { "id" : "US-AR","value" : 402094 }, { "id" : "US-CA","value" : 4602700 }, { "id" : "US-CO","value" : 553100 }, { "id" : "US-CT","value" : 3395851 }, { "id" : "US-DE","value" : 2098973 }, { "id" : "US-FL","value" : 495154 }, { "id" : "US-GA","value" : 4289410 }, { "id" : "US-HI","value" : 1324686 }, { "id" : "US-ID","value" : 496526 }, { "id" : "US-IL","value" : 7174824 }, { "id" : "US-IN","value" : 1680422 }, { "id" : "US-IA","value" : 699270 }, { "id" : "US-KS","value" : 393272 }, { "id" : "US-KY","value" : 1092512 }, { "id" : "US-LA","value" : 1304833 }, { "id" : "US-ME","value" : 63778 }, { "id" : "US-MD","value" : 8682166 }, { "id" : "US-MA","value" : 35540704 }, { "id" : "US-MI","value" : 2027389 }, { "id" : "US-MN","value" : 174577 }, { "id" : "US-MS","value" : 4922969 }, { "id" : "US-MO","value" : 3975351 }, { "id" : "US-MT","value" : 3974314 }, { "id" : "US-NE","value" : 183294 }, { "id" : "US-NV","value" : 1851975 }, { "id" : "US-NH","value" : 71526 }, { "id" : "US-NJ","value" : 6164504 }, { "id" : "US-NM","value" : 159344 }, { "id" : "US-NY","value" : 3367102 }, { "id" : "US-NC","value" : 4333706 }, { "id" : "US-ND","value" : 140646 }, { "id" : "US-OH","value" : 1958950 }, { "id" : "US-OK","value" : 2843534 }, { "id" : "US-OR","value" : 14270034 }, { "id" : "US-PA","value" : 14951289 }, { "id" : "US-RI","value" : 462183 }, { "id" : "US-SC","value" : 7221503 }, { "id" : "US-SD","value" : 56084 }, { "id" : "US-TN","value" : 1818562 }, { "id" : "US-TX","value" : 1404014 }, { "id" : "US-UT","value" : 708316 }, { "id" : "US-VT","value" : 137394 }, { "id" : "US-VA","value" : 24157726 }, { "id" : "US-WA","value" : 300096 }, { "id" : "US-WV","value" : 9826 }, { "id" : "US-WI","value" : 2943375 }, { "id" : "US-WY","value" : 163186 }],
-  [ { "id" : "US-AL","value" : 576680 }, { "id" : "US-AK","value" : 245267 }, { "id" : "US-AZ","value" : 2557303 }, { "id" : "US-AR","value" : 594569 }, { "id" : "US-CA","value" : 4091712 }, { "id" : "US-CO","value" : 567191 }, { "id" : "US-CT","value" : 2633720 }, { "id" : "US-DE","value" : 2023027 }, { "id" : "US-FL","value" : 495524 }, { "id" : "US-GA","value" : 3573821 }, { "id" : "US-HI","value" : 688547 }, { "id" : "US-ID","value" : 567014 }, { "id" : "US-IL","value" : 6523904 }, { "id" : "US-IN","value" : 1406645 }, { "id" : "US-IA","value" : 646338 }, { "id" : "US-KS","value" : 291977 }, { "id" : "US-KY","value" : 1512144 }, { "id" : "US-LA","value" : 1025335 }, { "id" : "US-ME","value" : 42431 }, { "id" : "US-MD","value" : 5511396 }, { "id" : "US-MA","value" : 22917143 }, { "id" : "US-MI","value" : 2813235 }, { "id" : "US-MN","value" : 180797 }, { "id" : "US-MS","value" : 4257694 }, { "id" : "US-MO","value" : 3757653 }, { "id" : "US-MT","value" : 4805652 }, { "id" : "US-NE","value" : 167193 }, { "id" : "US-NV","value" : 1578785 }, { "id" : "US-NH","value" : 56665 }, { "id" : "US-NJ","value" : 8278071 }, { "id" : "US-NM","value" : 185006 }, { "id" : "US-NY","value" : 4396745 }, { "id" : "US-NC","value" : 4358983 }, { "id" : "US-ND","value" : 114766 }, { "id" : "US-OH","value" : 1450823 }, { "id" : "US-OK","value" : 1750211 }, { "id" : "US-OR","value" : 13113423 }, { "id" : "US-PA","value" : 16682088 }, { "id" : "US-RI","value" : 298099 }, { "id" : "US-SC","value" : 3944434 }, { "id" : "US-SD","value" : 33148 }, { "id" : "US-TN","value" : 1554107 }, { "id" : "US-TX","value" : 1958279 }, { "id" : "US-UT","value" : 795244 }, { "id" : "US-VT","value" : 168824 }, { "id" : "US-VA","value" : 29228388 }, { "id" : "US-WA","value" : 276273 }, { "id" : "US-WV","value" : 12449 }, { "id" : "US-WI","value" : 3588903 }, { "id" : "US-WY","value" : 155482 }],
-  [ { "id" : "US-AL","value" : 700081 }, { "id" : "US-AK","value" : 141216 }, { "id" : "US-AZ","value" : 1655099 }, { "id" : "US-AR","value" : 335680 }, { "id" : "US-CA","value" : 3401328 }, { "id" : "US-CO","value" : 729068 }, { "id" : "US-CT","value" : 3582337 }, { "id" : "US-DE","value" : 1119462 }, { "id" : "US-FL","value" : 268612 }, { "id" : "US-GA","value" : 3607413 }, { "id" : "US-HI","value" : 676850 }, { "id" : "US-ID","value" : 658277 }, { "id" : "US-IL","value" : 3627922 }, { "id" : "US-IN","value" : 1418101 }, { "id" : "US-IA","value" : 744744 }, { "id" : "US-KS","value" : 429728 }, { "id" : "US-KY","value" : 1497049 }, { "id" : "US-LA","value" : 580745 }, { "id" : "US-ME","value" : 28191 }, { "id" : "US-MD","value" : 7399515 }, { "id" : "US-MA","value" : 26899778 }, { "id" : "US-MI","value" : 2890730 }, { "id" : "US-MN","value" : 229557 }, { "id" : "US-MS","value" : 4448139 }, { "id" : "US-MO","value" : 4045693 }, { "id" : "US-MT","value" : 2678481 }, { "id" : "US-NE","value" : 137026 }, { "id" : "US-NV","value" : 2004244 }, { "id" : "US-NH","value" : 64365 }, { "id" : "US-NJ","value" : 5127207 }, { "id" : "US-NM","value" : 167830 }, { "id" : "US-NY","value" : 6384911 }, { "id" : "US-NC","value" : 6096315 }, { "id" : "US-ND","value" : 90780 }, { "id" : "US-OH","value" : 2152761 }, { "id" : "US-OK","value" : 1193679 }, { "id" : "US-OR","value" : 17754562 }, { "id" : "US-PA","value" : 9839306 }, { "id" : "US-RI","value" : 236212 }, { "id" : "US-SC","value" : 5115394 }, { "id" : "US-SD","value" : 31874 }, { "id" : "US-TN","value" : 1091165 }, { "id" : "US-TX","value" : 1053500 }, { "id" : "US-UT","value" : 830344 }, { "id" : "US-VT","value" : 193443 }, { "id" : "US-VA","value" : 19228824 }, { "id" : "US-WA","value" : 283862 }, { "id" : "US-WV","value" : 9364 }, { "id" : "US-WI","value" : 4348240 }, { "id" : "US-WY","value" : 206381 }],
-  [ { "id" : "US-AL","value" : 723687 }, { "id" : "US-AK","value" : 206005 }, { "id" : "US-AZ","value" : 924528 }, { "id" : "US-AR","value" : 405873 }, { "id" : "US-CA","value" : 4864652 }, { "id" : "US-CO","value" : 958470 }, { "id" : "US-CT","value" : 2318297 }, { "id" : "US-DE","value" : 747124 }, { "id" : "US-FL","value" : 151131 }, { "id" : "US-GA","value" : 3236231 }, { "id" : "US-HI","value" : 768330 }, { "id" : "US-ID","value" : 863236 }, { "id" : "US-IL","value" : 5137253 }, { "id" : "US-IN","value" : 1077833 }, { "id" : "US-IA","value" : 952031 }, { "id" : "US-KS","value" : 295129 }, { "id" : "US-KY","value" : 1697015 }, { "id" : "US-LA","value" : 372510 }, { "id" : "US-ME","value" : 20416 }, { "id" : "US-MD","value" : 6051461 }, { "id" : "US-MA","value" : 18212252 }, { "id" : "US-MI","value" : 4286629 }, { "id" : "US-MN","value" : 199391 }, { "id" : "US-MS","value" : 5322580 }, { "id" : "US-MO","value" : 3723670 }, { "id" : "US-MT","value" : 3781054 }, { "id" : "US-NE","value" : 194452 }, { "id" : "US-NV","value" : 1625101 }, { "id" : "US-NH","value" : 55682 }, { "id" : "US-NJ","value" : 6589764 }, { "id" : "US-NM","value" : 103774 }, { "id" : "US-NY","value" : 6162997 }, { "id" : "US-NC","value" : 4989109 }, { "id" : "US-ND","value" : 83758 }, { "id" : "US-OH","value" : 1613785 }, { "id" : "US-OK","value" : 612949 }, { "id" : "US-OR","value" : 13692285 }, { "id" : "US-PA","value" : 11214782 }, { "id" : "US-RI","value" : 215419 }, { "id" : "US-SC","value" : 2721423 }, { "id" : "US-SD","value" : 16942 }, { "id" : "US-TN","value" : 980296 }, { "id" : "US-TX","value" : 538815 }, { "id" : "US-UT","value" : 785991 }, { "id" : "US-VT","value" : 255762 }, { "id" : "US-VA","value" : 16751267 }, { "id" : "US-WA","value" : 389417 }, { "id" : "US-WV","value" : 8457 }, { "id" : "US-WI","value" : 6428249 }, { "id" : "US-WY","value" : 252060 }],
-  [ { "id" : "US-AL","value" : 959798 }, { "id" : "US-AK","value" : 196308 }, { "id" : "US-AZ","value" : 919493 }, { "id" : "US-AR","value" : 571555 }, { "id" : "US-CA","value" : 2619156 }, { "id" : "US-CO","value" : 902531 }, { "id" : "US-CT","value" : 2763398 }, { "id" : "US-DE","value" : 844696 }, { "id" : "US-FL","value" : 171203 }, { "id" : "US-GA","value" : 4151650 }, { "id" : "US-HI","value" : 1151555 }, { "id" : "US-ID","value" : 1235274 }, { "id" : "US-IL","value" : 5908591 }, { "id" : "US-IN","value" : 670547 }, { "id" : "US-IA","value" : 1363259 }, { "id" : "US-KS","value" : 152401 }, { "id" : "US-KY","value" : 1622065 }, { "id" : "US-LA","value" : 388822 }, { "id" : "US-ME","value" : 19051 }, { "id" : "US-MD","value" : 3275130 }, { "id" : "US-MA","value" : 26085022 }, { "id" : "US-MI","value" : 5450703 }, { "id" : "US-MN","value" : 143607 }, { "id" : "US-MS","value" : 6312039 }, { "id" : "US-MO","value" : 4834824 }, { "id" : "US-MT","value" : 3238613 }, { "id" : "US-NE","value" : 209879 }, { "id" : "US-NV","value" : 1504838 }, { "id" : "US-NH","value" : 75000 }, { "id" : "US-NJ","value" : 6121491 }, { "id" : "US-NM","value" : 128974 }, { "id" : "US-NY","value" : 5013591 }, { "id" : "US-NC","value" : 4799038 }, { "id" : "US-ND","value" : 52071 }, { "id" : "US-OH","value" : 2262206 }, { "id" : "US-OK","value" : 543754 }, { "id" : "US-OR","value" : 15952416 }, { "id" : "US-PA","value" : 6010148 }, { "id" : "US-RI","value" : 222064 }, { "id" : "US-SC","value" : 1413101 }, { "id" : "US-SD","value" : 9611 }, { "id" : "US-TN","value" : 1462203 }, { "id" : "US-TX","value" : 500883 }, { "id" : "US-UT","value" : 1090749 }, { "id" : "US-VT","value" : 336302 }, { "id" : "US-VA","value" : 21984895 }, { "id" : "US-WA","value" : 281785 }, { "id" : "US-WV","value" : 10765 }, { "id" : "US-WI","value" : 4727766 }, { "id" : "US-WY","value" : 258898 }],
-  [ { "id" : "US-AL","value" : 1387726 }, { "id" : "US-AK","value" : 247042 }, { "id" : "US-AZ","value" : 1286693 }, { "id" : "US-AR","value" : 439307 }, { "id" : "US-CA","value" : 2328184 }, { "id" : "US-CO","value" : 1312778 }, { "id" : "US-CT","value" : 2864308 }, { "id" : "US-DE","value" : 941941 }, { "id" : "US-FL","value" : 192169 }, { "id" : "US-GA","value" : 6123103 }, { "id" : "US-HI","value" : 1474136 }, { "id" : "US-ID","value" : 1664052 }, { "id" : "US-IL","value" : 6219624 }, { "id" : "US-IN","value" : 407713 }, { "id" : "US-IA","value" : 1633152 }, { "id" : "US-KS","value" : 134763 }, { "id" : "US-KY","value" : 1520554 }, { "id" : "US-LA","value" : 419936 }, { "id" : "US-ME","value" : 25309 }, { "id" : "US-MD","value" : 2639335 }, { "id" : "US-MA","value" : 37236069 }, { "id" : "US-MI","value" : 5221498 }, { "id" : "US-MN","value" : 76910 }, { "id" : "US-MS","value" : 4078882 }, { "id" : "US-MO","value" : 6748804 }, { "id" : "US-MT","value" : 2829687 }, { "id" : "US-NE","value" : 243848 }, { "id" : "US-NV","value" : 2231319 }, { "id" : "US-NH","value" : 60077 }, { "id" : "US-NJ","value" : 7701902 }, { "id" : "US-NM","value" : 163778 }, { "id" : "US-NY","value" : 5687700 }, { "id" : "US-NC","value" : 3640445 }, { "id" : "US-ND","value" : 41121 }, { "id" : "US-OH","value" : 2710130 }, { "id" : "US-OK","value" : 807195 }, { "id" : "US-OR","value" : 14342572 }, { "id" : "US-PA","value" : 6934796 }, { "id" : "US-RI","value" : 295117 }, { "id" : "US-SC","value" : 1278870 }, { "id" : "US-SD","value" : 8228 }, { "id" : "US-TN","value" : 1706967 }, { "id" : "US-TX","value" : 310605 }, { "id" : "US-UT","value" : 1223160 }, { "id" : "US-VT","value" : 363394 }, { "id" : "US-VA","value" : 22163990 }, { "id" : "US-WA","value" : 365344 }, { "id" : "US-WV","value" : 10425 }, { "id" : "US-WI","value" : 6636579 }, { "id" : "US-WY","value" : 238759 }],
-  [ { "id" : "US-AL","value" : 1675592 }, { "id" : "US-AK","value" : 134046 }, { "id" : "US-AZ","value" : 1053042 }, { "id" : "US-AR","value" : 595969 }, { "id" : "US-CA","value" : 2439311 }, { "id" : "US-CO","value" : 1704513 }, { "id" : "US-CT","value" : 2344524 }, { "id" : "US-DE","value" : 721017 }, { "id" : "US-FL","value" : 149912 }, { "id" : "US-GA","value" : 5368969 }, { "id" : "US-HI","value" : 1239709 }, { "id" : "US-ID","value" : 2238278 }, { "id" : "US-IL","value" : 6631856 }, { "id" : "US-IN","value" : 228779 }, { "id" : "US-IA","value" : 1258126 }, { "id" : "US-KS","value" : 137664 }, { "id" : "US-KY","value" : 2262409 }, { "id" : "US-LA","value" : 504507 }, { "id" : "US-ME","value" : 19040 }, { "id" : "US-MD","value" : 1941189 }, { "id" : "US-MA","value" : 43157120 }, { "id" : "US-MI","value" : 2862763 }, { "id" : "US-MN","value" : 67151 }, { "id" : "US-MS","value" : 2646777 }, { "id" : "US-MO","value" : 7992280 }, { "id" : "US-MT","value" : 1602342 }, { "id" : "US-NE","value" : 302807 }, { "id" : "US-NV","value" : 1630457 }, { "id" : "US-NH","value" : 87562 }, { "id" : "US-NJ","value" : 8397985 }, { "id" : "US-NM","value" : 208865 }, { "id" : "US-NY","value" : 5855923 }, { "id" : "US-NC","value" : 3232870 }, { "id" : "US-ND","value" : 34737 }, { "id" : "US-OH","value" : 2782420 }, { "id" : "US-OK","value" : 1208815 }, { "id" : "US-OR","value" : 19379889 }, { "id" : "US-PA","value" : 7757585 }, { "id" : "US-RI","value" : 224535 }, { "id" : "US-SC","value" : 1569714 }, { "id" : "US-SD","value" : 7406 }, { "id" : "US-TN","value" : 1350224 }, { "id" : "US-TX","value" : 418286 }, { "id" : "US-UT","value" : 1485926 }, { "id" : "US-VT","value" : 296350 }, { "id" : "US-VA","value" : 28137217 }, { "id" : "US-WA","value" : 250260 }, { "id" : "US-WV","value" : 12694 }, { "id" : "US-WI","value" : 8994432 }, { "id" : "US-WY","value" : 291881 }],
-  [ { "id" : "US-AL","value" : 2012726 }, { "id" : "US-AK","value" : 184703 }, { "id" : "US-AZ","value" : 1279393 }, { "id" : "US-AR","value" : 610887 }, { "id" : "US-CA","value" : 2163366 }, { "id" : "US-CO","value" : 1593151 }, { "id" : "US-CT","value" : 1312608 }, { "id" : "US-DE","value" : 648578 }, { "id" : "US-FL","value" : 131597 }, { "id" : "US-GA","value" : 4060947 }, { "id" : "US-HI","value" : 1025613 }, { "id" : "US-ID","value" : 1808582 }, { "id" : "US-IL","value" : 7168720 }, { "id" : "US-IN","value" : 245925 }, { "id" : "US-IA","value" : 949047 }, { "id" : "US-KS","value" : 177740 }, { "id" : "US-KY","value" : 2788146 }, { "id" : "US-LA","value" : 735923 }, { "id" : "US-ME","value" : 18327 }, { "id" : "US-MD","value" : 1221343 }, { "id" : "US-MA","value" : 64042127 }, { "id" : "US-MI","value" : 1612602 }, { "id" : "US-MN","value" : 63910 }, { "id" : "US-MS","value" : 2780454 }, { "id" : "US-MO","value" : 7856467 }, { "id" : "US-MT","value" : 1878376 }, { "id" : "US-NE","value" : 429085 }, { "id" : "US-NV","value" : 985311 }, { "id" : "US-NH","value" : 126531 }, { "id" : "US-NJ","value" : 4711069 }, { "id" : "US-NM","value" : 234641 }, { "id" : "US-NY","value" : 8078840 }, { "id" : "US-NC","value" : 2364553 }, { "id" : "US-ND","value" : 30417 }, { "id" : "US-OH","value" : 3042360 }, { "id" : "US-OK","value" : 1043559 }, { "id" : "US-OR","value" : 12096978 }, { "id" : "US-PA","value" : 5964124 }, { "id" : "US-RI","value" : 219379 }, { "id" : "US-SC","value" : 823187 }, { "id" : "US-SD","value" : 6049 }, { "id" : "US-TN","value" : 1605827 }, { "id" : "US-TX","value" : 282689 }, { "id" : "US-UT","value" : 1264414 }, { "id" : "US-VT","value" : 197185 }, { "id" : "US-VA","value" : 36674109 }, { "id" : "US-WA","value" : 169241 }, { "id" : "US-WV","value" : 7433 }, { "id" : "US-WI","value" : 10107290 }, { "id" : "US-WY","value" : 339690 }],
-  [ { "id" : "US-AL","value" : 1542508 }, { "id" : "US-AK","value" : 255271 }, { "id" : "US-AZ","value" : 1185806 }, { "id" : "US-AR","value" : 511146 }, { "id" : "US-CA","value" : 1301214 }, { "id" : "US-CO","value" : 1774490 }, { "id" : "US-CT","value" : 811075 }, { "id" : "US-DE","value" : 966353 }, { "id" : "US-FL","value" : 161998 }, { "id" : "US-GA","value" : 3057753 }, { "id" : "US-HI","value" : 588308 }, { "id" : "US-ID","value" : 1318502 }, { "id" : "US-IL","value" : 5274802 }, { "id" : "US-IN","value" : 228721 }, { "id" : "US-IA","value" : 1099152 }, { "id" : "US-KS","value" : 212454 }, { "id" : "US-KY","value" : 2482371 }, { "id" : "US-LA","value" : 851995 }, { "id" : "US-ME","value" : 22103 }, { "id" : "US-MD","value" : 1247736 }, { "id" : "US-MA","value" : 80593135 }, { "id" : "US-MI","value" : 2068373 }, { "id" : "US-MN","value" : 89896 }, { "id" : "US-MS","value" : 4046575 }, { "id" : "US-MO","value" : 5971622 }, { "id" : "US-MT","value" : 2093428 }, { "id" : "US-NE","value" : 328961 }, { "id" : "US-NV","value" : 1301186 }, { "id" : "US-NH","value" : 187862 }, { "id" : "US-NJ","value" : 3695505 }, { "id" : "US-NM","value" : 218811 }, { "id" : "US-NY","value" : 8203649 }, { "id" : "US-NC","value" : 2450521 }, { "id" : "US-ND","value" : 29445 }, { "id" : "US-OH","value" : 3893054 }, { "id" : "US-OK","value" : 890922 }, { "id" : "US-OR","value" : 17574803 }, { "id" : "US-PA","value" : 5598764 }, { "id" : "US-RI","value" : 257009 }, { "id" : "US-SC","value" : 987240 }, { "id" : "US-SD","value" : 4230 }, { "id" : "US-TN","value" : 2299228 }, { "id" : "US-TX","value" : 222321 }, { "id" : "US-UT","value" : 1559387 }, { "id" : "US-VT","value" : 108787 }, { "id" : "US-VA","value" : 29142460 }, { "id" : "US-WA","value" : 123279 }, { "id" : "US-WV","value" : 7932 }, { "id" : "US-WI","value" : 9830616 }, { "id" : "US-WY","value" : 372970 }],
-  [ { "id" : "US-AL","value" : 1348970 }, { "id" : "US-AK","value" : 353786 }, { "id" : "US-AZ","value" : 665177 }, { "id" : "US-AR","value" : 284665 }, { "id" : "US-CA","value" : 1853218 }, { "id" : "US-CO","value" : 1800472 }, { "id" : "US-CT","value" : 478926 }, { "id" : "US-DE","value" : 777105 }, { "id" : "US-FL","value" : 228653 }, { "id" : "US-GA","value" : 3319839 }, { "id" : "US-HI","value" : 633688 }, { "id" : "US-ID","value" : 1809446 }, { "id" : "US-IL","value" : 5478417 }, { "id" : "US-IN","value" : 116253 }, { "id" : "US-IA","value" : 836498 }, { "id" : "US-KS","value" : 193572 }, { "id" : "US-KY","value" : 2535282 }, { "id" : "US-LA","value" : 575095 }, { "id" : "US-ME","value" : 14883 }, { "id" : "US-MD","value" : 736685 }, { "id" : "US-MA","value" : 49145823 }, { "id" : "US-MI","value" : 2035805 }, { "id" : "US-MN","value" : 54884 }, { "id" : "US-MS","value" : 5253187 }, { "id" : "US-MO","value" : 3412810 }, { "id" : "US-MT","value" : 1911348 }, { "id" : "US-NE","value" : 356444 }, { "id" : "US-NV","value" : 1136638 }, { "id" : "US-NH","value" : 281682 }, { "id" : "US-NJ","value" : 3227044 }, { "id" : "US-NM","value" : 243211 }, { "id" : "US-NY","value" : 7178669 }, { "id" : "US-NC","value" : 1822170 }, { "id" : "US-ND","value" : 37671 }, { "id" : "US-OH","value" : 5411877 }, { "id" : "US-OK","value" : 538419 }, { "id" : "US-OR","value" : 12526601 }, { "id" : "US-PA","value" : 8233709 }, { "id" : "US-RI","value" : 246803 }, { "id" : "US-SC","value" : 632014 }, { "id" : "US-SD","value" : 3561 }, { "id" : "US-TN","value" : 2441864 }, { "id" : "US-TX","value" : 209085 }, { "id" : "US-UT","value" : 1796610 }, { "id" : "US-VT","value" : 136229 }, { "id" : "US-VA","value" : 18110580 }, { "id" : "US-WA","value" : 167036 }, { "id" : "US-WV","value" : 7979 }, { "id" : "US-WI","value" : 11846714 }, { "id" : "US-WY","value" : 446735 }]
-];
-  */
-var latlong = {};
-latlong["CA"] = {};
-latlong["FR"] = {"latitude":46, "longitude":2};
-latlong["IQ"] = {"latitude":33, "longitude":44};
-latlong["RU"] = {"latitude":60, "longitude":100};
-latlong["US"] = {"latitude":38, "longitude":-97};
 
-//Test variable with absurd dummy data
-var mapData = [
-[ {"code":"CA" , "name":"Canada", "value": 0, "latitude":56.13, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
-[ {"code":"CA" , "name":"Canada", "value":0.5, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0.5,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0 }],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
-[ {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 0.5,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":0.5,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 },{"code":"US" , "name":"United States", "value":1,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 }, {"code":"US" , "name":"United States", "value":0,"latitude":38, "longitude":40} ],
-[ {"code":"CA" , "name":"Canada", "value":1, "latitude":54, "longitude":55 }, {"code":"FR" , "name":"France", "value": 0,"latitude":33, "longitude":44}, {"code":"IQ" , "name":"Iraq", "value": 1,"latitude":60, "longitude":100 }, {"code":"RU" , "name":"Russia", "value": 0.5 } ]
-];
+var rawData;
+var year = 1776;
+var mapData = [];
+var currentYear = 2018;
 
-var mapData = "./embassy-data-sorted-1.csv";
-
-//Have to wait until I can get a web server spun up to test this part
-
-var parsedData = AmCharts.loadFile( mapData, {}, function( response ) {
-
-  /**
-   * Parse CSV
-   */
-
-  var data = AmCharts.parseCSV( response, {
-    "useColumnNames": true
+function init(callback) {
+AmCharts.loadFile( "./embassy-data-sorted-1.csv", {}, function( response ) {
+   var data = AmCharts.parseCSV( response, {
+    "useColumnNames": true,
   } );
-  
-  //Investigating what this returns
-  for (var i=0;i<data.length;i++){
-  console.log(data[i]);
+  rawData = data;
+  runMap();
+});
 }
 
-});
+init();
 
+
+//This is incredibly inelegant, but it works.
+function runMap() {
+  //console.log("Length is " + mapData.length);
+
+var el = document.getElementById("play-button");
+el.addEventListener("click", togglePlay, false);
 
 /**
  * Create the map
  */
 
+function groupData(){
+  //So. If the array created here is longer than 1, push to ANOTHER array, right? Array of arrays.
+  for (var i = 0; i < rawData.length; i++) {
+    var array = [];
+    //console.log(rawData[i].year);
+    var e = (i+year);
+    //console.log(e);
+    for (var j = 0; j < rawData.length; j++) {
+    if (rawData[j].year == e) {
+      array.push(rawData[j]);
+      //console.log(rawData[j]);
+    }
+  }
+    //console.log(array);
+      //var matches = mapData.filter(data => (data.year === e));
+      //console.log(matches);
+      if (e < currentYear){
+        mapData.push(array);   
+      }
+  }
+ console.log(mapData.length);
+}
+groupData();
+
 var map = AmCharts.makeChart( "mapdiv", {
   "type": "map",
   "theme": "black",
 
-  //Still working with dummy data for now, hold tight.
+/* IMPORTANT: This would attempt to push all the data at once to the map. Which is useful, but not here.
+  /*
   "dataLoader": {
-    "url": parsedData
+    "url": mapData
   },
+  */
   
   "dataProvider": {
     "map": "worldLow",
     "images": []
   },
+
+  "zoomControl": {
+    "zoomControlEnabled": false,
+    "panControlEnabled": false
+  }
 } );
 
- console.log(parsedData);
-//Defunct, plus this came from Stack Overflow. Leaving to study further.
-function remove(arr) {
-    var what, a = arguments, L = a.length, ax;
-    while (L > 1 && arr.length) {
-        what = a[--L];
-        while ((ax= arr.indexOf(what)) !== -1) {
-            arr.splice(ax, 1);
-        }
-    }
-    return arr;
-}
 
 function fadeIn() {
    if (alpha < 1*value) {
@@ -134,18 +99,31 @@ function fadeIn() {
 }
 
 function drawBubbles() {
+  //Update this for loop to reflect the matches found.
   for (var i = 0; i < mapData[frame].length; i++) {
     var dataItem = mapData[frame][i];
-    //Need to change this so it reflects 0 for closed, 1 for embassy, and 0.5 for legation.
-    var value = mapData[frame][i].value;
-    var code = dataItem.code;
-    var lat = dataItem.latitude;
-    var long = dataItem.longitude;
-    var title = dataItem.name;
+    //console.log("frame is "+ frame)
+    console.log("Length of frame:" + mapData[frame].length);
+    //console.log("i is " + i);
+    console.log("Data item = " + dataItem + i);
     var img = map.dataProvider.images
+    //console.log(img[0]);
+    //Need to change this so it reflects 0 for closed, 1 for embassy, and 0.5 for legation.
+    var value;
+    if (dataItem.event == "establish legation"){
+      value = 0.5;
+    }else if (dataItem.event == "elevate to embassy" || dataItem.event === "establish embassy"){
+      value = 1;
+    }else if (dataItem.event == 'closure') value = 0;
+    var year = dataItem.year;
+    var lat = dataItem.lat;
+    var long = dataItem.lon;
+    var title = dataItem.country;
     var match = img.filter(image => (image.title === title));
-    //console.log(match.length + "matches found for " + title);
-    //console.log("Value of " + title + " = " + value);
+    console.log(match.length + " matches found for " + title);
+    //console.log("Found at " + img.indexOf(match[0]));
+    console.log("Value of " + title + " = " + value);
+    //console.log("Lat = " + lat + "Long = " + long);
     var type;
     var r = 65*value;
     var g = 65*value;
@@ -154,6 +132,7 @@ function drawBubbles() {
     //First time, push to array.
     //Will this actually just work for the whole thing?
     //It almost does. The thing is that you need to reset all the values at restart.
+
     if ( match.length < 1) {
 
       img.push({
@@ -161,25 +140,30 @@ function drawBubbles() {
             width: 10,
             height: 10,
             color: `rgba(51, 102, 255, ${alpha})`,
-            longitude: lat,
-            latitude: long,
+            longitude: long,
+            latitude:  lat,
             title: title,
             value: value
         });
+      //console.log(img[i]);
     } else {
         //If already in array, update the visibility based on whether there is an embassy, a legation, or nothing.
+        //How to find??
+        console.log(dataItem.country);
+        var index = img.findIndex(item => item.title === dataItem.country);
+        console.log("index = " + index); 
           if(value > 0) {
             //Consider comparing the current value to the previous value, and playing an animation on change, to draw attention to it.
-              img[i].type="circle";
-              img[i].color = `rgba(51, 102, 255, ${alpha})`
+              img[index].type="circle";
+              img[index].color = `rgba(51, 102, 255, ${alpha})`
           }else if (value == 0) {
           //var exists = img.filter(image => (image.title === title))
             //if (exists.length>0){
-            img[i].type="";
-            //console.log("Image at index" + img[i].type);
-            img[i].color = `rgba(51, 102, 255, ${alpha})`;
+            img[index].type="";
+            img[index].color = `rgba(51, 102, 255, ${alpha})`;
             }
           }
+      //console.log(img[frame]);    
   }
 }
 
@@ -206,8 +190,8 @@ function drawBubbles() {
  togglePlay();
   frame = this.id - startYear;
   //updateFramedisplay();
-  console.log(this.id);
-  console.log("frame = " + frame);
+ // console.log(this.id);
+  //console.log("frame = " + frame);
  }
 
  function updateFramedisplay() {
@@ -219,8 +203,9 @@ function drawBubbles() {
 var frame = 0;
 var startYear = 1776;
 var interval;
-var speed = 500; // time between frames in milliseconds
+var speed = 200; // time between frames in milliseconds
 var playing=false;
+//What does this do...
 var lastFrame = mapData[frame-1];
 
 // function to start stop
@@ -235,26 +220,26 @@ function togglePlay() {
     // start playing
     interval = setInterval(function () {
       frame++;
-      console.log(frame);
+      //console.log("Current frame = " + frame);
       //This puts a focus on the year's timeline. How to update it?
       //document.getElementsByClassName('tick')[frame].focus()
       
       // check if maybe we need to wrap to frame 0
-      //Oh my gosh it's wrapping to 0 because I'm setting the frame to 1776, instead of i+1776, which puts it WAY
-      //past.
-      if ( frame >= mapData.length ) {
+      //if ( frame >= mapData.length ) {
          //Need to clear all the data values here so you can start over nicely.
+      if(frame >= mapData.length){
         //resetValues();
+        
         frame = 0;
-         map.dataProvider.images = [];
-
-
+       map.dataProvider.images = [];
       }
      
      //This should allow and maintain zoom values. Right now, it maintains zoom level but not latlong
+     /*
     map.dataProvider.zoomLevel = map.zoomLevel();
     map.dataProvider.zoomLatitude = map.zoomLatitude();
     map.dataProvider.zoomLongitude = map.zoomLongitude();
+    */
       
       // set data to the chart for the current frame
      drawBubbles();
@@ -268,64 +253,5 @@ function togglePlay() {
 //console.log(playing);
 }
 
-/*
-//Test function to push static data
-function testFunc() {
-  var dataYear = mapData[0];
-  var dataItem = mapData[0][1];
-  var value = mapData[0][1].value;
-  var lat = dataItem.latitude;
-  var long = dataItem.longitude;
-  console.log("Code = " + dataItem.code);
-  console.log("Value = " + value);
-  var code = dataItem.code
-  console.log("Long = " + dataItem.longitude);
-  var img = map.dataProvider.images;
- // console.log(img[0].title);
-  var exists = img.filter(image => (image.title != code));
-  //console.log(exists);
-  if (exists.length > 0){
-    //Ok, I'm more on the right track here.
-    //if true, then find it and remove it.
-    //I feel like this is a lot of loops.
-    //But then again computers are powerful.
-    //Can probably handle looping through 400 entries a second.
-  console.log(true);
-  } else {
-    console.log(false);
-  }
-  if (value <= 0) {
-  }
-
- if (value > 0) {
-
-  //Animate this to make it all pretty
-         //if (exists[0].title === code){
-          var alpha = 1*value;
-          var b = 237*value;
-          map.dataProvider.images.push({
-            type: "circle",
-            width: 15,
-            height: 15,
-            color: `rgba(64, 64, ${b}, 0.8)`,
-            longitude: lat, 
-            latitude: long,
-            title: dataItem.name,
-            value: value
-        });
-        //}
-
-    } else {
-      //Check if the image with this id already exists.
-      //If it does exist, remove it from the array.
-      //Otherwise, do nothing.
-    }
-  //console.log(img);
-  img = exists;
-  //console.log(img);
-      
-}
-*/
-//testFunc();
-//drawBubbles();
 //makeTimeline();
+}
